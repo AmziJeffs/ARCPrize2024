@@ -1,0 +1,85 @@
+Results of fine-tuning LLaMa model to solve tasks. All notebooks stored
+on Kaggle. We do not fine-tune during inference phase, which is a 
+significant limitation to this approach. 
+
+
+
+Date: 9/11/2024
+Notebook: Version 1, "First_Test_Run"
+Model: "unsloth/Meta-Llama-3.1-8B"
+Max new tokens: 256
+Epochs: 2
+Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
+Grid encoding: with square brackets, single line
+Evaluation set results:
+Number of non-null guesses:          119.5 / 400
+Number of guesses with correct size: 85.5 / 400
+Number of correct guesses:           12.0 / 400
+
+
+
+Date: 9/14/2024
+Notebook: Version 2, "Second_Test_Run"
+Model: "unsloth/Meta-Llama-3.1-8B"
+Max new tokens: 256
+Epochs: 1
+Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
+Grid encoding: with square brackets, single line
+Evaluation set results:
+Number of non-null guesses:          120.0 / 400
+Number of guesses with correct size: 86.0 / 400
+Number of correct guesses:           12.0 / 400
+
+
+
+Date: 9/14/2024
+Notebook: Version 3, "More_max_tokens"
+Model: "unsloth/Meta-Llama-3.1-8B"
+Max new tokens: 512
+Epochs: 1
+Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
+Grid encoding: with square brackets, single line
+Evaluation set results:
+Number of non-null guesses:          210.5 / 400
+Number of guesses with correct size: 156.5 / 400
+Number of correct guesses:           14.0 / 400
+
+
+
+Date: 9/14/2024
+Notebook: Version 4, "three_epochs"
+Model: "unsloth/Meta-Llama-3.1-8B"
+Max new tokens: 512
+Epochs: 3
+Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
+Grid encoding: with square brackets, single line
+Evaluation set results:
+Number of non-null guesses:          215.0 / 400
+Number of guesses with correct size: 170.5 / 400
+Number of correct guesses:           16.5 / 400
+
+
+
+9/15/2024
+Notebook: Version 5, "lean_encoding_baseline"
+Model: "unsloth/Meta-Llama-3.1-8B"
+Max new tokens: 256
+Epochs: 1
+Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
+Grid encoding: no brackets, spaces between cells and newlines for each row
+Evaluation set results:
+Number of non-null guesses:          60.0 / 400
+Number of guesses with correct size: 3.0 / 400
+Number of correct guesses:           1.0 / 400
+
+
+
+9/15/2024
+Notebook: Version 7, TBD
+Model: "unsloth/Meta-Llama-3.1-8B"
+Max new tokens: 256
+Epochs: 1
+Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
+Grid encoding: commas and brackets, no white space
+Evaluation set results:
+TBD
