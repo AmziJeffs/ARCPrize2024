@@ -267,7 +267,45 @@ def split_by_objects(x):
 
 
 def split_by_objects_strict(x):
-	pass
+	result = []
+
+	def is_valid_coord(coord, shape):
+		if coord[0] < 0:
+			return False
+		if coord[0] >= shape[0]:
+			return False
+		if coord[1] < 0:
+			return False
+		if coord[1] >= shape[1]:
+			return False
+		return True
+
+	dir_offsets = [[1,0],[0,-1],[-1,0],[0,1]]
+
+	for grid in x:
+		grid = deepcopy(grid)
+		im = grid['im']
+		frontier = []
+		for row in range(im.shape[0]):
+			for col in range(im.shape[1]):
+				if im[row][col] != 0:
+					obj_im = np.zeros(im.shape)
+					frontier.append((row, col))
+					obj_im[row, col] = im[row, col]
+					im[row, col] = 0
+					while len(frontier) > 0:
+						current_cell = frontier.pop()
+						for offset in dir_offsets:
+							adj_cell = (current_cell[0] + offset[0], current_cell[1] + offset[1])
+							if is_valid_coord(adj_cell, im.shape):
+								if im[adj_cell[0], adj_cell[1]] != 0:
+									frontier.append(adj_cell)
+									obj_im[adj_cell[0], adj_cell[1]] = im[adj_cell[0], adj_cell[1]]
+									im[adj_cell[0], adj_cell[1]] = 0
+					new_grid = deepcopy(grid)
+					new_grid['im'] = obj_im
+					result.append(new_grid)
+	return result
 
 def holes(x):
 	pass
