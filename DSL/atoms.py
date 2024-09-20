@@ -4,8 +4,8 @@
 #
 # Each DSL function takes as input an image or list of images, which are stored
 # in the following dictionary format:
-# {'image': image, an np.array, a grid at most 30 x 30, entries from 0 to 9
-#  'canvas': (w,h) the dimensions of the ambient grid where image lives
+# {'im': image, an np.array, a grid at most 30 x 30, entries from 0 to 9
+#  'canv': (w,h) the dimensions of the ambient grid where image lives
 #  'pos': (x,y), the position of the image relative to its canvas}
 # 
 # Each function in our DSL takes a (possibly empty) list of images, and 
@@ -15,6 +15,7 @@
 
 
 import numpy as np
+import copy.deepcopy as deepcopy
 
 ################################################################################
 # Symmetry functions (rotate, reflect, tile, etc)
@@ -24,35 +25,79 @@ def identity(x):
 	return x
 
 def rotate_cw(x):
-	pass
+	rotated = []
+	for grid in x:
+		grid_rotated = deepcopy(grid)
+		grid_rotated['im'] = np.rot90(grid_rotated['im'], axis = (1,0))
+		rotated.append(grid_rotated)
+	return rotated
 
 def rotate_ccw(x):
-	pass
+	rotated = []
+	for grid in x:
+		grid_rotated = deepcopy(grid)
+		grid_rotated['im'] = np.rot90(grid_rotated['im'], axis = (0,1))
+		rotated.append(grid_rotated)
+	return rotated
 
 def rotate_180(x):
-	pass
+	rotated = []
+	for grid in x:
+		grid_rotated = deepcopy(grid)
+		grid_rotated['im'] = np.rot90(grid_rotated['im'], k=2)
+		rotated.append(grid_rotated)
+	return rotated
 
+# Flips over y-axis
 def mirror_h(x):
-	pass
+	mirrored = []
+	for grid in x:
+		grid_mirrored = deepcopy(grid)
+		grid_mirrored['im'] = np.flip(grid_mirrored['im'], axis=1)
+		mirrored.append(grid_mirrored)
+	return mirrored
 
+# Flips over x-axis
 def mirror_v(x):
-	pass
+	mirrored = []
+	for grid in x:
+		grid_mirrored = deepcopy(grid)
+		grid_mirrored['im'] = np.flip(grid_mirrored['im'], axis=0)
+		mirrored.append(grid_mirrored)
+	return mirrored
 
+# Flips over up-right diagonal
 def mirror_ur(x):
-	pass
+	mirrored = []
+	for grid in x:
+		grid_mirrored = deepcopy(grid)
+		grid_mirrored['im'] = np.flip(np.rot90(grid_mirrored['im']), axis=1)
+		mirrored.append(grid_mirrored)
+	return mirrored
 
+# Flips over down-right diagonal
 def mirror_dr(x):
-	pass
+	mirrored = []
+	for grid in x:
+		grid_mirrored = deepcopy(grid)
+		grid_mirrored['im'] = np.flip(np.rot90(grid_mirrored['im']), axis=0)
+		mirrored.append(grid_mirrored)
+	return mirrored
 
+# Tiles the input rectangularly over the canvas
 def tile_rect(x):
 	pass
 
+# Mirrors over y-axis, attempts to align, and stacks results
 def repair_h_symmetry(x):
 	pass
 
+# Mirrors over x-axis, attempts to align, and stacks results
 def repair_v_symmetry(x):
 	pass
 
+# Rotates by 90, 180, and 270 degrees, and attempts to align, and stacks
+# results
 def repair_rotational_symmetry(x):
 	pass
 
@@ -136,6 +181,12 @@ def move_towards_and_collide(x):
 	pass
 
 def adjacent(x):
+	pass
+
+def extend_h(x):
+	pass
+
+def extend_v(x):
 	pass
 
 ################################################################################
