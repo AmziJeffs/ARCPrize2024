@@ -109,10 +109,10 @@ def center_all(x):
 ################################################################################
 
 def sort_largest_first(x):
-	return sorted(x, key=lambda y:(y['im'] != 0).sum())
+	return sorted(x, key=lambda y:(y['im'] != 0).sum(), reverse=True)
 
 def sort_smallest_first(x):
-	return sorted(x, key=lambda y:(y['im'] != 0).sum(), reverse=True)
+	return sorted(x, key=lambda y:(y['im'] != 0).sum())
 
 def unique(x):
 	result = []
@@ -214,10 +214,57 @@ def extend_v(x):
 ################################################################################
 
 def split_by_colors(x):
-	pass
+	result = []
+	for grid in x:
+		for color in range(1,10):
+			im = (grid['im'] == color)*color
+			if im.sum() > 0:
+				newgrid = deepcopy(grid)
+				newgrid['im'] = im
+				result.append(newgrid)
+	return result
 
 def split_by_objects(x):
-	pass
+	result = []
+
+	def is_valid_coord(coord, shape):
+		if coord[0] < 0:
+			return False
+		if coord[0] >= shape[0]:
+			return False
+		if coord[1] < 0:
+			return False
+		if coord[1] >= shape[1]:
+			return False
+		return True
+
+	dir_offsets = [[1,1],[1,0],[1,-1],[0,-1],[-1,-1],[-1,0],[-1,1],[0,1]]
+
+	for grid in x:
+		grid = deepcopy(grid)
+		im = grid['im']
+		frontier = []
+		for row in range(im.shape[0]):
+			for col in range(im.shape[1]):
+				if im[row][col] != 0:
+					obj_im = np.zeros(im.shape)
+					frontier.append((row, col))
+					obj_im[row, col] = im[row, col]
+					im[row, col] = 0
+					while len(frontier) > 0:
+						current_cell = frontier.pop()
+						for offset in dir_offsets:
+							adj_cell = (current_cell[0] + offset[0], current_cell[1] + offset[1])
+							if is_valid_coord(adj_cell, im.shape):
+								if im[adj_cell[0], adj_cell[1]] != 0:
+									frontier.append(adj_cell)
+									obj_im[adj_cell[0], adj_cell[1]] = im[adj_cell[0], adj_cell[1]]
+									im[adj_cell[0], adj_cell[1]] = 0
+					new_grid = deepcopy(grid)
+					new_grid['im'] = obj_im
+					result.append(new_grid)
+	return result
+
 
 def split_by_objects_strict(x):
 	pass
