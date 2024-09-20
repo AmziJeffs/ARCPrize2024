@@ -15,7 +15,7 @@
 
 
 import numpy as np
-import copy.deepcopy as deepcopy
+from copy import deepcopy
 
 ################################################################################
 # Symmetry functions (rotate, reflect, tile, etc)
@@ -28,7 +28,7 @@ def rotate_cw(x):
 	rotated = []
 	for grid in x:
 		grid_rotated = deepcopy(grid)
-		grid_rotated['im'] = np.rot90(grid_rotated['im'], axis = (1,0))
+		grid_rotated['im'] = np.rot90(grid_rotated['im'], axes = (1,0))
 		rotated.append(grid_rotated)
 	return rotated
 
@@ -36,7 +36,7 @@ def rotate_ccw(x):
 	rotated = []
 	for grid in x:
 		grid_rotated = deepcopy(grid)
-		grid_rotated['im'] = np.rot90(grid_rotated['im'], axis = (0,1))
+		grid_rotated['im'] = np.rot90(grid_rotated['im'], axes = (0,1))
 		rotated.append(grid_rotated)
 	return rotated
 
@@ -109,24 +109,44 @@ def center_all(x):
 ################################################################################
 
 def sort_largest_first(x):
-	pass
+	return sorted(x, key=lambda y:(y['im'] != 0).sum())
 
 def sort_smallest_first(x):
-	pass
+	return sorted(x, key=lambda y:(y['im'] != 0).sum(), reverse=True)
+
+def unique(x):
+	result = []
+	for grid in x:
+		add = True
+		for grid2 in result:
+			if grid['im'] == grid2['im']:
+				add = False
+		if add:
+			result.append(deepcopy(grid))
+	return result
+
+def unique_shape(x):
+	result = []
+	for grid in x:
+		add = True
+		for grid2 in result:
+			if (grid['im'] != 0) == (grid2['im'] != 0):
+				add = False
+		if add:
+			result.append(deepcopy(grid))
+	return result
+
+def non_singletons(x):
+	result = []
+	for grid in x:
+		if (grid['im'] != 0).sum() > 1:
+			result.append(deepcopy(grid))
+	return result
 
 def sort_most_numerous_first(x):
 	pass
 
 def sort_least_numerous_first(x):
-	pass
-
-def sort_by_colors(x):
-	pass
-
-def unique(x):
-	pass
-
-def non_singletons(x):
 	pass
 
 
