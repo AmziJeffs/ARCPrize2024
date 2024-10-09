@@ -5100,6 +5100,7 @@ def solve_469497ad(I):
 
 def solve_39e1d7f9(I):
     x1 = fgpartition(I)
+    bg = mostcolor(I)
     x2 = objects(I, T, F, T)
     x3 = order(x1, height)
     x4 = last(x3)
@@ -5109,7 +5110,9 @@ def solve_39e1d7f9(I):
     x8 = colorfilter(x2, x7)
     x9 = power(outbox, TWO)
     x10 = rbind(toobject, I)
-    x11 = chain(numcolors, x10, x9)
+    remove_bg = lbind(remove, bg)
+    num_nonbg = chain(size, remove_bg, palette)
+    x11 = chain(num_nonbg, x10, x9)
     x12 = argmax(x8, x11)
     x13 = ulcorner(x12)
     x14 = shape(x12)
