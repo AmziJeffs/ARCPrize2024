@@ -4712,7 +4712,6 @@ def solve_72322fa7(I):
 
 
 def solve_855e0971(I):
-    x1 = rot90(I)
     x2 = frontiers(I)
     x3 = sfilter(x2, hline)
     x4 = size(x3)
