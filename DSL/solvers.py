@@ -3230,10 +3230,9 @@ def solve_6cf79266(I):
 
 def solve_a87f7484(I):
     x1 = numcolors(I)
-    x2 = dmirror(I)
     x3 = portrait(I)
-    m4 = branch(x3, dmirror, identity)
-    x5 = m4(I)
+    x4 = branch(x3, dmirror, identity)
+    x5 = x4(I)
     x6 = decrement(x1)
     x7 = hsplit(x5, x6)
     x8 = rbind(ofcolor, ZERO)
@@ -3241,7 +3240,7 @@ def solve_a87f7484(I):
     x10 = leastcommon(x9)
     x11 = matcher(x8, x10)
     x12 = extract(x7, x11)
-    O = m4(x12)
+    O = x4(x12)
     return O
 
 
@@ -5114,7 +5113,7 @@ def solve_39e1d7f9(I):
     x12 = argmax(x8, x11)
     x13 = ulcorner(x12)
     x14 = shape(x12)
-    x15 = subtract(x13, x14)
+    x15 = subtract(x13, x14) 
     x16 = decrement(x15)
     x17 = multiply(x14, THREE)
     x18 = add(x17, TWO_BY_TWO)
