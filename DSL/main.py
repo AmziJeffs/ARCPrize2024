@@ -12,11 +12,17 @@ import solvers
 
 
 def get_data(train=True):
-    path = f'../data/{"training" if train else "evaluation"}'
+    tasks_path = f'../data/arc-agi_{"training" if train else "evaluation"}_challenges.json'
+    sols_path = f'../data/arc-agi_{"training" if train else "evaluation"}_solutions.json'
     data = {}
-    for fn in os.listdir(path):
-        with open(f'{path}/{fn}') as f:
-            data[fn.rstrip('.json')] = json.load(f)
+    with open(tasks_path) as f:
+        data = json.load(f)
+    with open(sols_path) as f:
+        sols = json.load(f)
+        for key in data:
+            num_tests = len(data[key]['test'])
+            for j in range(num_tests):
+                data[key]['test'][j]['output'] = sols[key][j]
     ast = lambda g: tuple(tuple(r) for r in g)
     return {
         'train': {k: [{
@@ -103,6 +109,7 @@ def test_solvers_correctness(data, solvers_module):
     """ tests the implemented solvers for correctness """
     n_correct = 0
     n = len(data["train"])
+    failed_tests = []
     for key in tqdm.tqdm(data['train'].keys(), total=n):
         task = data['train'][key] + data['test'][key]
         try:
@@ -111,8 +118,10 @@ def test_solvers_correctness(data, solvers_module):
                 assert solver(ex['input']) == ex['output']
             n_correct += 1
         except:
-            pass
+            failed_tests.append(key)
     print(f'{n_correct} out of {n} tasks solved correctly.')
+    if len(failed_tests) > 0:
+        print('Tests failed:\n' + "\n".join(failed_tests))
 
 
 def main():
