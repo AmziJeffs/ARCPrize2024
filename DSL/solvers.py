@@ -5113,7 +5113,7 @@ def solve_39e1d7f9(I):
     x12 = argmax(x8, x11)
     x13 = ulcorner(x12)
     x14 = shape(x12)
-    x15 = subtract(x13, x14) 
+    x15 = subtract(x13, x14)
     x16 = decrement(x15)
     x17 = multiply(x14, THREE)
     x18 = add(x17, TWO_BY_TWO)
