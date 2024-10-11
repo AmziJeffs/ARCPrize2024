@@ -184,5 +184,21 @@ Evaluation set results:
 Number of non-null guesses:          338.0 / 400
 Number of guesses with correct size: 263.5 / 400
 Number of correct guesses:           20.0 / 400
+<<<<<<< HEAD
+=======
+
+
+
+10/7/2024
+Notebook: Version 20, "2x_permuted_augment"
+Model: "unsloth/Meta-Llama-3.1-8B"
+Max new tokens: 1024
+Epochs: 1
+Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
+Grid encoding: commas and brackets, no white space
+Dataset: Augmented training data via 1 random permutation (plus non-permuted tasks)
+Evaluation set results:
+
+>>>>>>> 56a7130dcbd040c7a1a7253bab07c8946c82a887
 
 
