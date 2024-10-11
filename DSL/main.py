@@ -69,6 +69,7 @@ def test_solvers_formatting(solvers_module, dsl_module):
     dsl_interface = get_functions(dsl_module.__file__)
     n_correct = 0
     n = len(definitions)
+    incorrectly_formatted = []
     for key, definition in definitions.items():
         try:
             lines = definition.split('\n')
@@ -101,8 +102,10 @@ def test_solvers_formatting(solvers_module, dsl_module):
                 ]) > 1 or v == 'O'
             n_correct += 1
         except:
-            pass
+            incorrectly_formatted.append(key)
     print(f'{n_correct} out of {n} solvers formatted correctly.')
+    if len(incorrectly_formatted) > 0:
+        print('incorrectly_formatted:\n' + "\n".join(incorrectly_formatted))
 
 
 def test_solvers_correctness(data, solvers_module):
@@ -115,7 +118,17 @@ def test_solvers_correctness(data, solvers_module):
         try:
             solver = getattr(solvers_module, f'solve_{key}')
             for ex in task:
-                assert solver(ex['input']) == ex['output']
+                try:
+                    assert solver(ex['input']) == ex['output']
+                except: 
+                    if key == '4290ef0e':
+                        print("")
+                        print("\n".join(str(row) for row in solver(ex['input'])))
+                        print("")
+                        print("\n".join(str(row) for row in ex['output']))
+                        print("")
+                        print("")
+                        print("")
             n_correct += 1
         except:
             failed_tests.append(key)

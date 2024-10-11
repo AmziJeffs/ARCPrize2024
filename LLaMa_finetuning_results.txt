@@ -198,7 +198,13 @@ Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tas
 Grid encoding: commas and brackets, no white space
 Dataset: Augmented training data via 1 random permutation (plus non-permuted tasks)
 Evaluation set results:
+<<<<<<< Updated upstream
 
 >>>>>>> 56a7130dcbd040c7a1a7253bab07c8946c82a887
+=======
+Number of non-null guesses:          338.0 / 400
+Number of guesses with correct size: 251.0 / 400
+Number of correct guesses:           17.0 / 400
+>>>>>>> Stashed changes
 
 

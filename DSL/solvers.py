@@ -5714,7 +5714,7 @@ def solve_4290ef0e(I):
     x5 = lbind(colorfilter, x3)
     x6 = chain(x4, x5, color)
     x7 = compose(maximum, shape)
-    x8 = fork(add, x7, x6)
+    x8 = fork(multiply, x7, x6)
     x9 = compose(invert, x8)
     x10 = order(x2, x9)
     x11 = rbind(argmin, centerofmass)
