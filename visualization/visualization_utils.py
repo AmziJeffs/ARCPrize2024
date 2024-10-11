@@ -47,4 +47,18 @@ def plot_task(task):
             plot_one(axs[0, i], task, i, 'test', 'input')
             plot_one(axs[1, i], task, i, 'test', 'output')  
     plt.tight_layout()
-    plt.show() 
+    plt.show()
+
+
+def show_grid(grid):
+    """
+    Visualize a single grid
+    """    
+    fig, ax = plt.subplots(figsize = (4, 4))
+    ax.imshow(grid, cmap=ARC_CMAP, norm=ARC_NORM)
+    ax.grid(True, which='both', color='lightgrey', linewidth=0.5)    
+    ax.set_yticks([x-0.5 for x in range(1+len(grid))])
+    ax.set_xticks([x-0.5 for x in range(1+len(grid[0]))])     
+    ax.set_xticklabels([])
+    ax.set_yticklabels([])
+    plt.show()
