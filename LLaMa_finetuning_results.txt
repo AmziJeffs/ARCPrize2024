@@ -95,6 +95,8 @@ Max new tokens: 512
 Epochs: 1
 Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
 Grid encoding: commas and brackets, no white space
+Train time: 30 min
+Inference time: 3hr 38min
 Evaluation set results:
 Number of non-null guesses:          263.5 / 400
 Number of guesses with correct size: 197.0 / 400
@@ -109,6 +111,8 @@ Max new tokens: 768
 Epochs: 1
 Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
 Grid encoding: commas and brackets, no white space
+Train time: 37 min
+Inference time: 5 hours
 Evaluation set results:
 Number of non-null guesses:          304.0 / 400
 Number of guesses with correct size: 232.0 / 400
@@ -151,6 +155,8 @@ Max new tokens: 1024
 Epochs: 3
 Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
 Grid encoding: commas and brackets, no white space
+Training time: 100 min
+Inference time: 5hr 30 min
 Evaluation set results:
 Number of non-null guesses:          332.0 / 400
 Number of guesses with correct size: 255.5 / 400
@@ -195,9 +201,57 @@ Epochs: 1
 Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
 Grid encoding: commas and brackets, no white space
 Dataset: Augmented training data via 1 random permutation (plus non-permuted tasks)
+Training time: 65.59 minutes
+Inference time: 5hr 22min
 Evaluation set results:
 Number of non-null guesses:          338.0 / 400
 Number of guesses with correct size: 251.0 / 400
-Number of correct guesses:           17.0 / 400
+Number of correct guesses:           17.0 / 400g
 
 
+
+10/12/2024
+Notebook: Version 22, "2x_permuted_augment_restrict_tokens"
+Model: "unsloth/Meta-Llama-3.1-8B"
+Max new tokens: Adaptive
+Epochs: 1
+Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
+Grid encoding: commas and brackets, no white space
+Dataset: Augmented training data via 1 random permutation (plus non-permuted tasks)
+Training time: 65 min
+Inference time: 6hr 6 min
+Evaluation set results:
+Number of non-null guesses:          359.0 / 400
+Number of guesses with correct size: 269.0 / 400
+Number of correct guesses:           17.5 / 400
+
+
+
+10/13/2024
+Notebook: Version 23, "8x_permuted_augment_restrict_tokens"
+Model: "unsloth/Meta-Llama-3.1-8B"
+Max new tokens: Adaptive
+Epochs: 1
+Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
+Grid encoding: commas and brackets, no white space
+Dataset: Augmented training data via 7 random permutations (plus non-permuted tasks)
+Training time: 4.6 hours
+Inference time: 6.3 hours
+Evaluation set results: 
+Number of non-null guesses:          356.0 / 400
+Number of guesses with correct size: 272.0 / 400
+Number of correct guesses:           14.0 / 400
+
+
+
+10/13/2024
+Notebook: Version 24, "dihedral_adaptive_tokens"
+Model: "unsloth/Meta-Llama-3.1-8B"
+Max new tokens: Adaptive
+Epochs: 1
+Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
+Grid encoding: commas and brackets, no white space
+Dataset: Augmented training data with 8 dihedral symmetries
+Training time:
+Inference time:
+Evaluation set results:
