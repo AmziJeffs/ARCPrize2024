@@ -252,6 +252,9 @@ Epochs: 1
 Prompt: "Your job is to help me solve Abstraction and Reasoning Corpus (ARC) tasks. You should carefully examine each train input grid and train output grid, and find the general pattern for turning input grid into output grid. Then, tell me what the test output grid is, given the test input grid.\n\n"
 Grid encoding: commas and brackets, no white space
 Dataset: Augmented training data with 8 dihedral symmetries
-Training time:
-Inference time:
+Training time: 4 hours
+Inference time: 6 hours
 Evaluation set results:
+Number of non-null guesses:          355.0 / 400
+Number of guesses with correct size: 292.5 / 400
+Number of correct guesses:           14.0 / 400
