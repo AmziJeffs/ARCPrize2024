@@ -42,37 +42,39 @@ scoring_functions = {
 
 
 def is_valid_grid(G, enforce_30_x_30 = True):
-    """
-    Verify that a grid is indeed a tuple of tuples of ints from 0 to 9,
-    with all rows having same length and dimensions at most 30 x 30
-    """
+	"""
+	Verify that a grid is indeed a tuple of tuples of ints from 0 to 9,
+	with all rows having same length and dimensions at most 30 x 30
+	"""
 
-    # Verify G is a nonempty tuple
-    if not isinstance(G, tuple):
-        return False
-    if len(G) == 0:
-        return False
+	# Verify G is a nonempty tuple
+	if not isinstance(G, tuple):
+		return False
+	if len(G) == 0:
+		return False
 
-    # Verify rows are tuples containing ints 0 to 9
-    for row in G:
-    	if not isinstance(row, tuple):
-    		return False
-    	for entry in row:
-    		if not isinstance(entry, int) or entry < 0 or entry > 9:
-    			return False
+	# Verify rows are tuples containing ints 0 to 9
+	for row in G:
+		if not isinstance(row, tuple):
+			return False
 
-    # Check rows have same lengths
-    if len(set([len(row) for row in G])) > 1:
-        return False
+	# Check rows have same lengths
+	if len(set([len(row) for row in G])) > 1:
+		return False
 
-    # Check grid is at most 30 x 30
-    if enforce_30_x_30:
-    	if not len(G) <= 30:
-    		return False
-    	if not len(G[0]) <= 30:
-    		return False
+	# Check grid is at most 30 x 30
+	if enforce_30_x_30:
+		if not len(G) <= 30:
+			return False
+		if not len(G[0]) <= 30:
+			return False
 
-    return True
+	# Check entries are 0 to 9
+	entries = set([a for a in row for row in G])
+	if not len(entries.difference(set([0,1,2,3,4,5,6,7,8,9]))) == 0:
+		return False
+
+	return True
 
 
 def score_solvers_vs_tasks(solvers: dict, # {solver_name: solver_function}
