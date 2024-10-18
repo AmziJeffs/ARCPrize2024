@@ -20,7 +20,10 @@ def activated_score(actual, expected):
 	"""
 	actual_activated = set([(r,c) for r in range(len(actual)) for c in range(len(actual[0])) if actual[r][c] != 0])
 	expected_activated = set([(r,c) for r in range(len(expected)) for c in range(len(expected[0])) if expected[r][c] != 0])
-	return len(actual_activated.difference(expected_activated)) / len(actual_activated)
+	if len(actual_activated) == 0:
+		return 1.0
+	else:
+		return len(actual_activated.difference(expected_activated)) / len(actual_activated)
 
 
 def exact_match_score(actual, expected):
