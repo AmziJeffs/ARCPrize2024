@@ -94,9 +94,12 @@ def score_solvers_vs_tasks(solvers: list[Solver],
 						   ) -> dict:
 	results = {solver.name: None for solver in solvers}
 
-	@timeout_decorator.timeout(solver_timeout)
 	def apply_solver(solver, G):
 		return solver(G)
+	if solver_timeout:
+		@timeout_decorator.timeout(solver_timeout)
+		def apply_solver(solver, G):
+			return solver(G)
 
 	for solver in solvers:
 		total_score = 0
