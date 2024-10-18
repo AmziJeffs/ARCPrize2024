@@ -118,17 +118,7 @@ def test_solvers_correctness(data, solvers_module):
         try:
             solver = getattr(solvers_module, f'solve_{key}')
             for ex in task:
-                try:
-                    assert solver(ex['input']) == ex['output']
-                except: 
-                    if key == '4290ef0e':
-                        print("")
-                        print("\n".join(str(row) for row in solver(ex['input'])))
-                        print("")
-                        print("\n".join(str(row) for row in ex['output']))
-                        print("")
-                        print("")
-                        print("")
+                assert solver(ex['input']) == ex['output']
             n_correct += 1
         except:
             failed_tests.append(key)
