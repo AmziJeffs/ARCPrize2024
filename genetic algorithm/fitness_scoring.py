@@ -1,3 +1,5 @@
+import timeout_decorator
+
 def width_score(actual, expected):
 	return abs(len(actual[0]) - len(expected[0]))
 
@@ -16,16 +18,9 @@ def activated_score(actual, expected):
 	"""
 	Number of pixels that are incorrectly activated
 	"""
-	h = min(len(actual), len(expected))
-	w = min(len(actual[0]), len(expected[0]))
-	score = 0
-	for r in range(h):
-		for c in range(w):
-			if actual[r][c] == 0 and expected[r][c] != 0:
-				score += 1
-			if actual[r][c] != 0 and expected[r][c] == 0:
-				score += 1
-	return score
+	actual_activated = set([(r,c) for r in range(len(actual)) for c in range(len(actual[0])) if actual[r][c] != 0])
+	expected_activated = set([(r,c) for r in range(len(expected)) for c in range(len(expected[0])) if expected[r][c] != 0])
+	return len(actual_activated.difference(expected_activated))
 
 
 def exact_match_score(actual, expected):
@@ -37,7 +32,6 @@ def exact_match_score(actual, expected):
 	return len(actual_entries.symmetric_difference(expected_entries))
 
 
-
 scoring_functions = {
 	'width': width_score,
 	'height': height_score,
@@ -45,3 +39,58 @@ scoring_functions = {
 	'activated': activated_score,
 	'exact_match_correct': exact_match_score, 
 }
+
+
+def is_valid_grid(G):
+    """
+    Verify that a grid is indeed a tuple of tuples of ints with same lengths
+    """
+    if not isinstance(G, tuple):
+        return False
+    if len(G) == 0:
+        return False
+    if not isinstance(G[0], tuple):
+        return False
+    if len(set([len(row) for row in G])) > 1:
+        return False
+    return True
+
+
+def score_solvers_vs_tasks(solvers: dict, # {solver_name: solver_function}
+						   in_out_pairs: list, # List of dicts {'input': in_grid, 'output': out_grid}
+						   scoring_functions: dict, # {scoring_function_name, scoring_function}
+						   reduction:str = 'sum', # After scoring a function on all pairs, how to combine scores
+						   solver_timeout:float = None, # Maximum time to try each solver
+						   ) -> dict:
+	results = {solver_name: None for solver_name in solvers.keys()}
+
+	@timeout_decorator.timeout(solver_timeout)
+	def apply_solver(solver, G):
+		return solver(G)
+
+	for solver_name, solver in solvers.items():
+		total_score = 0
+		solver_failed = False
+		for pair in in_out_pairs:
+			in_grid = pair['input']
+			out_expected = pair['output']
+			out_actual = None
+			try:
+				# Note: We can get an exception for two reasons here.
+				# Either the solver breaks on the input, or the solver times out.
+				out_actual = apply_solver(solver, in_grid)
+			except:
+				solver_failed = True
+			if is_valid_grid(out_actual):
+				scores = [scoring_func(out_actual, out_expected) for scoring_func in scoring_functions.values()]
+				if reduction == 'sum':
+					total_score += sum(scores)
+				else:
+					raise Exception(f"Scoring reduction '{reduction}' not implemented.")
+			else:
+				solver_failed = True
+
+		if not solver_failed:
+			results[solver_name] = total_score
+
+	return results
