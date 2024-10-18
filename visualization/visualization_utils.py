@@ -62,3 +62,21 @@ def show_grid(grid):
     ax.set_xticklabels([])
     ax.set_yticklabels([])
     plt.show()
+
+
+def show_grids(grids):
+    """
+    Visualize list of grids in a row
+    """
+    n = len(grids)
+    fig, axs = plt.subplots(ncols = n, figsize = (4, 4))
+    for i in range(n):
+        grid = grids[i]
+        ax = axs[i]
+        ax.imshow(grid, cmap=ARC_CMAP, norm=ARC_NORM)
+        ax.grid(True, which='both', color='lightgrey', linewidth=0.5)    
+        ax.set_yticks([x-0.5 for x in range(1+len(grid))])
+        ax.set_xticks([x-0.5 for x in range(1+len(grid[0]))])     
+        ax.set_xticklabels([])
+        ax.set_yticklabels([])
+    plt.show()
