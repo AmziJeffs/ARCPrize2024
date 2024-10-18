@@ -1,4 +1,8 @@
 import timeout_decorator
+import sys
+
+sys.path.insert(0, '../DSL')
+from solver_class import Solver
 
 def width_score(actual, expected):
 	return abs(len(actual[0]) - len(expected[0])) / max(len(expected[0]), 30 - len(expected[0]))
@@ -83,18 +87,18 @@ def is_valid_grid(G, enforce_30_x_30 = True, enforce_palette = False):
 	return True
 
 
-def score_solvers_vs_tasks(solvers: dict, # {solver_name: solver_function}
+def score_solvers_vs_tasks(solvers: list[Solver],
 						   in_out_pairs: list, # List of dicts {'input': in_grid, 'output': out_grid}
 						   scoring_functions: dict, # {scoring_function_name, scoring_function}
 						   solver_timeout:float = None, # Maximum time to try each solver
 						   ) -> dict:
-	results = {solver_name: None for solver_name in solvers.keys()}
+	results = {solver.name: None for solver in solvers}
 
 	@timeout_decorator.timeout(solver_timeout)
 	def apply_solver(solver, G):
 		return solver(G)
 
-	for solver_name, solver in solvers.items():
+	for solver in solvers:
 		total_score = 0
 		solver_failed = False
 		for pair in in_out_pairs:
@@ -114,6 +118,6 @@ def score_solvers_vs_tasks(solvers: dict, # {solver_name: solver_function}
 				solver_failed = True
 
 		if not solver_failed:
-			results[solver_name] = total_score / len(in_out_pairs)
+			results[solver.name] = total_score / len(in_out_pairs)
 
 	return results
