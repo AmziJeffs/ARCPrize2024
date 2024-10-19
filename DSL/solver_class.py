@@ -19,7 +19,7 @@ class Solver():
             O = ...
             return O
         """
-        self.name = program_text.split("(I)")[0].split(" ")[1]
+        self.name = program_text.split("(I")[0].split(" ")[1]
         self.program_text = program_text
         self.function = self.update_function_from_text()
         self.docstring = self.update_docstring_from_text()
