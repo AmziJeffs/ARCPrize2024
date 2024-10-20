@@ -4,15 +4,27 @@ import sys
 sys.path.insert(0, '../DSL')
 from solver_class import Solver
 
+
 def width_score(actual, expected):
-	return abs(len(actual[0]) - len(expected[0])) / max(len(expected[0]), 30 - len(expected[0]))
+	"""
+	Difference in width, normalized by denominator that is max difference with
+	expected among all widths in range [1, 30]
+	"""
+	return abs(len(actual[0]) - len(expected[0])) / max(len(expected[0]) - 1, 30 - len(expected[0]))
 
 
 def height_score(actual, expected):
-	return abs(len(actual) - len(expected)) / max(len(expected), 30 - len(expected))
+	"""
+	Difference in height, normalized by denominator that is max difference with
+	expected among all heights in range [1, 30]
+	"""
+	return abs(len(actual) - len(expected)) / max(len(expected) - 1, 30 - len(expected))
 
 
 def palette_score(actual, expected):
+	"""
+	Symmetric difference in palettes, normalized by union of palettes
+	"""
 	actual_vals = set([a for row in actual for a in row])
 	expected_vals = set([a for row in expected for a in row])
 	return len(actual_vals.symmetric_difference(expected_vals)) / len(actual_vals.union(expected_vals))
@@ -20,7 +32,8 @@ def palette_score(actual, expected):
 
 def activated_score(actual, expected):
 	"""
-	Number of pixels that are incorrectly activated
+	Number of pixels in actual that are incorrectly activated, normalized by
+	total pixels in actual 
 	"""
 	actual_activated = set([(r,c) for r in range(len(actual)) for c in range(len(actual[0])) if actual[r][c] != 0])
 	expected_activated = set([(r,c) for r in range(len(expected)) for c in range(len(expected[0])) if expected[r][c] != 0])
@@ -32,7 +45,8 @@ def activated_score(actual, expected):
 
 def exact_match_score(actual, expected):
 	"""
-	Number of cells that do not exactly match between grids
+	Number of cells that do not exactly match between grids, normalized by
+	union of all entries over both grids
 	"""
 	actual_entries = set([(actual[r][c], (r,c)) for r in range(len(actual)) for c in range(len(actual[0]))])
 	expected_entries = set([(expected[r][c], (r,c)) for r in range(len(expected)) for c in range(len(expected[0]))])
