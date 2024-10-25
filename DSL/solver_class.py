@@ -4,6 +4,8 @@ from dsl import *
 from constants import *
 from arc_types import *
 
+sys.path.insert(0, '..')
+from misc_utils import *
 
 class Solver():
     """
@@ -19,6 +21,7 @@ class Solver():
             O = ...
             return O
         """
+        
         self.name = program_text.split("(", 1)[0].split(" ")[1]
         self.program_text = program_text # TODO: Strip \n from end of program text?
         self.function = self.read_function_from_text()
@@ -28,6 +31,7 @@ class Solver():
         """
         Read program_text to self.function
         """
+
         exec(self.program_text)
         self.function = eval(self.name)
         return self.function
@@ -36,6 +40,7 @@ class Solver():
         """
         Read program_text to get docstring
         """
+
         if '    """\n' not in self.program_text:
             self.docstring = ""
         else:
@@ -48,6 +53,7 @@ class Solver():
         new_docstring should not include ''' or similar. It will be inserted between
         triple quotes in program_text. 
         """
+
         # Make sure input docstring is stripped of indents and leading/trailing newlines
         new_docstring = "\n".join(line.strip() for line in new_docstring.split("\n")).strip()
 
@@ -64,6 +70,15 @@ class Solver():
             blocks = self.program_text.split('    """\n')
             blocks = [blocks[0], indented_docstring + "\n"] + blocks[2:]
             self.program_text = '    """\n'.join(blocks)
+
+    def randomize_name(self):
+        """
+        Change name to solve_{random label}
+        """
+
+        new_name = f"solve_{random_label()}"
+        self.program_text.replace(self.name, new_name)
+        self.name = new_name
 
     def __call__(self, input_grid):
         return self.function(input_grid)
