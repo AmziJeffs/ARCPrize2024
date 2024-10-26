@@ -80,7 +80,7 @@ class Solver():
         Change name
         """
 
-        self.function_text.replace(self.name, new_name)
+        self.function_text.replace(self.name, new_name, 1)
         self.name = new_name
         self.setup_function()
 
