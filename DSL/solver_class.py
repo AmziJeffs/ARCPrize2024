@@ -26,6 +26,7 @@ class Solver():
         """
         Read solver_text to get function definition
         """
+
         if '    """\n' not in solver_text:
             self.function_text = solver_text
         else:
@@ -75,6 +76,33 @@ class Solver():
         self.function_text.replace(self.name, new_name)
         self.name = new_name
         self.setup_function()
+
+    def num_lines(self):
+        """
+        Number of lines in function definition of the form xi = call(args).
+
+        Note: self.function_text does not have a trailing linebreak, so we
+        can simply count occurrences of linebreaks and subtract one for
+        the final return line.
+        """
+
+        return self.function_text.count("\n") - 1
+
+    def without_last_k_lines(self, k, include_docstring = True):
+        """ 
+        Text of function with last k non-return lines removed.
+        """
+
+        func_text = self.function_text
+        for i in range(k):
+            func_text = func_text[:func_text.rfind('\n')]
+
+        if include_docstring:
+            defn, body = func_text.split("\n", 1)
+            indented_docstring = "    " + self.docstring.replace("\n", "\n    ")
+            return defn + "\n" + '    """\n' + indented_docstring + '    """\n' + body
+        else:
+            return func_text
 
     def __call__(self, input_grid):
         return self.function(input_grid)
