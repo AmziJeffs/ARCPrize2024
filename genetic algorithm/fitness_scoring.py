@@ -111,8 +111,9 @@ def score_solvers_vs_tasks(solvers: list[Solver],
 						   scoring_functions: dict, # {scoring_function_name, scoring_function}
 						   solver_timeout:float = None, # Maximum time to try each solver
 						   ) -> dict:
-	results = {solver.name: None for solver in solvers}
+	results = []
 
+	# Create a function for applying solvers to grids, possibly using timeout
 	def apply_solver(solver, G):
 		return solver(G)
 	if solver_timeout:
@@ -120,6 +121,8 @@ def score_solvers_vs_tasks(solvers: list[Solver],
 		def apply_solver(solver, G):
 			return solver(G)
 
+	# Run solvers
+	# TODO: Parallelize this
 	for solver in solvers:
 		total_score = 0
 		solver_failed = False
@@ -139,7 +142,11 @@ def score_solvers_vs_tasks(solvers: list[Solver],
 			else:
 				solver_failed = True
 
-		if not solver_failed:
-			results[solver.name] = total_score / len(in_out_pairs)
+		total_score = total_score / len(in_out_pairs)
+
+		if solver_failed:
+			total_score = 1.0
+		
+		results.append((total_score, solver))
 
 	return results
