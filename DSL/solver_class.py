@@ -73,6 +73,13 @@ class Solver():
         """
 
         new_name = f"solve_{random_label()}"
+        self.rename(new_name)
+
+    def rename(self, new_name):
+        """
+        Change name
+        """
+
         self.function_text.replace(self.name, new_name)
         self.name = new_name
         self.setup_function()
