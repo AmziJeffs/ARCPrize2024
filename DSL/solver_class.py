@@ -94,8 +94,12 @@ class Solver():
         """
 
         func_text = self.function_text
-        for i in range(k):
+        for i in range(k+1):
             func_text = func_text[:func_text.rfind('\n')]
+
+        # Rename return variable if we are just deleting the return line
+        if k == 0:
+            func_text.replace("    O = ", f"    x{self.num_lines()} = ")
 
         if include_docstring:
             defn, body = func_text.split("\n", 1)
