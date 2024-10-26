@@ -12,41 +12,47 @@ class Solver():
     TODO
     """
 
-    def __init__(self, program_text):
+    def __init__(self, solver_text):
         """
-        program_text must be in format:
-        def program_name(I):
-            x1 = ...
-            ...
-            O = ...
-            return O
+        TODO
         """
         
-        self.name = program_text.split("(", 1)[0].split(" ")[1]
-        self.program_text = program_text # TODO: Strip \n from end of program text?
-        self.function = self.read_function_from_text()
-        self.docstring = self.read_docstring_from_text() # Note: self.docstring is stored without indentation
+        self.name = solver_text.split("(", 1)[0].split(" ")[1]
+        self.function_text = self.read_function(solver_text)
+        self.docstring = self.read_docstring(solver_text) # Note: self.docstring is stored without indentation
+        self.function = self.setup_function()
 
-    def read_function_from_text(self):
+    def read_function(self, solver_text):
+        """
+        Read solver_text to get function definition
+        """
+        if '    """\n' not in solver_text:
+            self.function_text = solver_text
+        else:
+            defn, _, body = solver_text.split('    """\n')
+            self.function_text = defn + body
+        return self.function_text
+
+    def read_docstring(self, solver_text):
+        """
+        Read solver_text to get docstring
+        """
+
+        if '    """\n' not in solver_text:
+            self.docstring = ""
+        else:
+            indented_docstring = solver_text.split('    """\n')[1]
+            self.docstring = "\n".join(line.strip() for line in indented_docstring.split("\n"))
+        return self.docstring
+
+    def setup_function(self):
         """
         Read program_text to self.function
         """
 
-        exec(self.program_text)
+        exec(self.function_text)
         self.function = eval(self.name)
         return self.function
-
-    def read_docstring_from_text(self):
-        """
-        Read program_text to get docstring
-        """
-
-        if '    """\n' not in self.program_text:
-            self.docstring = ""
-        else:
-            indented_docstring = self.program_text.split('    """\n')[1]
-            self.docstring = "\n".join(line.strip() for line in indented_docstring.split("\n"))
-        return self.docstring
 
     def update_docstring(self, new_docstring):
         """
@@ -60,31 +66,23 @@ class Solver():
         # Update self.docstring
         self.docstring = new_docstring
 
-        # Insert indented docstring in program text
-        indented_docstring = "    " + "\n    ".join(line for line in self.docstring.split("\n"))
-        if '    """\n' not in self.program_text:
-            lines = self.program_text.split("\n")
-            lines = [lines[0], '    """', indented_docstring, '    """'] + lines[1:]
-            self.program_text = "\n".join(lines)
-        else:
-            blocks = self.program_text.split('    """\n')
-            blocks = [blocks[0], indented_docstring + "\n"] + blocks[2:]
-            self.program_text = '    """\n'.join(blocks)
-
     def randomize_name(self):
         """
         Change name to solve_{random label}
         """
 
         new_name = f"solve_{random_label()}"
-        self.program_text.replace(self.name, new_name)
+        self.function_text.replace(self.name, new_name)
         self.name = new_name
+        self.setup_function()
 
     def __call__(self, input_grid):
         return self.function(input_grid)
 
     def __str__(self):
-        return self.program_text
+        defn, body = self.function_text.split("\n", 1)
+        indented_docstring = "    " + self.docstring.replace("\n", "\n    ")
+        return defn + "\n" + '    """\n' + indented_docstring + '    """\n' + body
 
     def __repr__(self):
-        return self.program_text
+        return self.__str__()
