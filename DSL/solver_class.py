@@ -120,7 +120,7 @@ class Solver():
 
     def __str__(self):
         defn, body = self.function_text.split("\n", 1)
-        indented_docstring = "    " + self.docstring.replace("\n", "\n    ")
+        indented_docstring = "    " + self.docstring.replace("\n", "\n    ") + "\n"
         return defn + "\n" + '    """\n' + indented_docstring + '    """\n' + body
 
     def __repr__(self):
