@@ -1,6 +1,11 @@
 import timeout_decorator
 import sys
 
+# Catches syntax warnings in solver defs as errors, so that the solvers don't bother
+# trying to execute.
+import warnings
+warnings.filterwarnings("error")
+
 sys.path.insert(0, '../DSL')
 from solver_class import Solver
 
