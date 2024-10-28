@@ -43,7 +43,7 @@ class Solver():
             self.docstring = ""
         else:
             indented_docstring = solver_text.split('    """\n')[1]
-            self.docstring = "\n".join(line.strip() for line in indented_docstring.split("\n"))
+            self.docstring = "\n".join(line.strip() for line in indented_docstring.split("\n")).strip()
         return self.docstring
 
     def setup_function(self):
@@ -100,18 +100,24 @@ class Solver():
         Text of function with last k non-return lines removed.
         """
 
+        n_lines = self.num_lines()
+        k = min(k, n_lines)
+
         func_text = self.function_text
         for i in range(k+1):
             func_text = func_text[:func_text.rfind('\n')]
 
         # Rename return variable if we are just deleting the return line
         if k == 0:
-            func_text.replace("    O = ", f"    x{self.num_lines()} = ")
+            func_text = func_text.replace("    O = ", f"    x{n_lines} = ")
 
         if include_docstring:
-            defn, body = func_text.split("\n", 1)
+            if k < n_lines:
+                defn, body = func_text.split("\n", 1)
+            else:
+                defn, body = func_text, ""
             indented_docstring = "    " + self.docstring.replace("\n", "\n    ")
-            return defn + "\n" + '    """\n' + indented_docstring + '    """\n' + body
+            return defn + "\n" + '    """\n' + indented_docstring + '\n    """\n' + body
         else:
             return func_text
 
