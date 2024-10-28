@@ -1,5 +1,6 @@
-import timeout_decorator
 import sys
+import multiprocess
+from multiprocess import Pool
 
 # Catches syntax warnings in solver defs as errors, so that the solvers don't bother
 # trying to execute.
@@ -7,11 +8,8 @@ import sys
 import warnings
 warnings.filterwarnings("error")
 
-from multiprocess import Pool
-
 sys.path.insert(0, '../DSL')
 from solver_class import Solver
-
 
 def width_score(actual, expected):
 	"""
@@ -115,37 +113,29 @@ def score_solvers_vs_tasks(solvers: list[Solver],
 						   solver_timeout:float = 1.0, # Maximum time to try each solver on all inputs
 						   ) -> dict:
 
-	in_grids = [pair['input'] for pair in in_out_pairs]
-	out_grids = [pair['output'] for pair in in_out_pairs]
+	def score_solver(solver):
+		total_score = 0.0
+		for pair in in_out_pairs:
+			in_grid = pair['input']
+			expected_out = pair['output']
+			actual_out = None
+			try:
+				actual_out = solver(in_grid)
+			except:
+				pass
+			if is_valid_grid(actual_out):
+				total_score += sum([scoring_func(actual_out, expected_out) for scoring_func in scoring_functions.values()]) / len(scoring_functions)
+			else:
+				return 1.0
+		return total_score / len(in_out_pairs)
 
-	# Get the results of applying each solver to all the input pairs
-	# (uses parallelism).
-	outputs = []
-	with Pool(12) as P:
-		attempts = [P.map_async(solver, in_grids) for solver in solvers]
+	scores = []
+	with Pool(multiprocess.cpu_count()) as P:
+		attempts = [P.apply_async(score_solver, (solver,)) for solver in solvers]
 		for result in attempts:
 			try:
-				outputs.append(result.get(timeout = solver_timeout))
+				scores.append(result.get(timeout = solver_timeout))
 			except:
-				outputs.append(None)
-
-	# Compute scores
-	# TODO Make this parallelized too
-	def score_actuals_vs_expecteds(actuals, expecteds):
-		if not actuals:
-			return 1.0
-
-		# Everything gets averaged out here
-		total_score = 0.0
-		for i, actual in enumerate(actuals):
-			if not is_valid_grid(actual):
-				return 1.0
-			else:
-				total_score += sum([scoring_func(actual, expecteds[i]) for scoring_func in scoring_functions.values()]) / len(scoring_functions)
-
-		total_score = total_score / len(actuals)
-		return total_score
-
-	scores = [score_actuals_vs_expecteds(actuals, out_grids) for actuals in outputs]
+				scores.append(1.0)
 
 	return [(score, solvers[i]) for i, score in enumerate(scores)]
