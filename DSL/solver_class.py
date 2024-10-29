@@ -131,3 +131,22 @@ class Solver():
 
     def __repr__(self):
         return self.__str__()
+
+    def __eq__(self, other):
+        """
+        Two Solvers are equal if their function text matches, but not
+        necessarily their names or docstrings.
+        """
+        if isinstance(other, self.__class__):
+            return self.function_text.split('\n', 1)[1] == other.function_text.split('\n', 1)[1]
+        else:
+            return False
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __hash__(self):
+        """
+        Only hashes the lines defining the function, not the docstring or name
+        """
+        return hash(self.function_text.split('\n', 1)[1])
