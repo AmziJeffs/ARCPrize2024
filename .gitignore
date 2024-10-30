@@ -1,0 +1,22 @@
+.ipynb_checkpoints/
+CodeGen fine-tuning/.ipynb_checkpoints/
+DSL/.ipynb_checkpoints/
+data/.ipynb_checkpoints/
+genetic algorithm/.ipynb_checkpoints/
+visualization/.ipynb_checkpoints/
+
+__pycache__/
+DSL/__pycache__/
+genetic algorithm/__pycache__/
+visualization/__pycache__/
+
+CodeGen fine-tuning/outputs/
+DSL/DSL_experiments.ipynb
+DSL/arc_dsl_writeup.pdf
+DSL/solvers_to_fix.py
+genetic algorithm/initial_generation_notes.txt
+LLaMA_analysis.ipynb
+data/LLaMa_outputs/
+kaggle uploading/
+local_notes.txt
+local_scratch.ipynb
