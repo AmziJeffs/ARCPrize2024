@@ -222,6 +222,7 @@ Training time: 65 min
 Inference time: 6hr 6 min
 Evaluation set results:
 Number of non-null guesses:          359.0 / 400
+
 Number of guesses with correct size: 269.0 / 400
 Number of correct guesses:           17.5 / 400
 
