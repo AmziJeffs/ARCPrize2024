@@ -4,6 +4,11 @@ from dsl import *
 from constants import *
 from arc_types import *
 
+# Catches syntax warnings in solver defs as errors, so that the solvers don't bother
+# trying to execute.
+import warnings
+warnings.filterwarnings("error")
+
 sys.path.insert(0, '..')
 from misc_utils import *
 

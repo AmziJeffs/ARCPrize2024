@@ -2,12 +2,6 @@ import sys
 import multiprocess
 from multiprocess import Pool
 
-# Catches syntax warnings in solver defs as errors, so that the solvers don't bother
-# trying to execute.
-# TODO: Move this elsewhere
-import warnings
-warnings.filterwarnings("error")
-
 sys.path.insert(0, '../DSL')
 from solver_class import Solver
 
