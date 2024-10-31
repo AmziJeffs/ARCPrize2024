@@ -90,3 +90,23 @@ def solve(I):
     return O
 
 
+def solve(I):
+    x1 = hmirror(I)
+    x2 = ofcolor(I, ZERO)
+    O = subgrid(x2, x1)
+    return O
+
+
+def solve(I):
+    x1 = ofcolor(I, ZERO)
+    x2 = rbind(colorcount, ZERO)
+    x3 = lbind(toobject, x1)
+    x4 = compose(x2, x3)
+    x5 = hmirror(I)
+    x6 = vmirror(I)
+    x7 = astuple(x5, x6)
+    x8 = argmin(x7, x4)
+    O = subgrid(x1, x8)
+    return O
+
+

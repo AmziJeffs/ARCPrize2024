@@ -102,3 +102,56 @@ def solve(I):
     return O
 
 
+def solve(I):
+
+    x1 = frontiers(I)
+    x2 = sfilter(x1, hline)
+    x3 = size(x2)
+    x4 = positive(x3)
+    x5 = branch(x4, tophalf, lefthalf)
+    x6 = branch(x4, bottomhalf, righthalf)
+    x7 = x5(I)
+    x8 = x6(I)
+    x9 = palette(x7)
+    x10 = palette(x8)
+    x11 = intersection(x9, x10)
+    x12 = first(x11)
+    x13 = shape(x7)
+    x14 = canvas(x12, x13)
+    x15 = palette(x7)
+    x16 = other(x15, x12)
+    x17 = palette(x8)
+    x18 = other(x17, x12)
+    x19 = ofcolor(x7, x16)
+    x20 = ofcolor(x8, x18)
+    x21 = combine(x19, x20)
+    O = fill(x14, THREE, x21)
+    return O
+
+
+def solve(I):
+    x1 = hsplit(I, TWO)
+    x2 = apply(numcolors, x1)
+    x3 = equality(x2, TWO_BY_TWO)
+    x4 = branch(x3, hsplit, vsplit)
+    x5 = x4(I, TWO)
+    x6 = first(x5)
+    x7 = last(x5)
+    x8 = palette(x6)
+    x9 = palette(x7)
+    x10 = intersection(x8, x9)
+    x11 = first(x10)
+    x12 = palette(x6)
+    x13 = other(x12, x11)
+    x14 = palette(x7)
+    x15 = other(x14, x11)
+    x16 = shape(x6)
+    x17 = dneighbors(UNITY)
+    x18 = canvas(x11, x16)
+    x19 = ofcolor(x6, x13)
+    x20 = ofcolor(x7, x15)
+    x21 = combine(x19, x20)
+    O = fill(x18, THREE, x21)
+    return O
+
+

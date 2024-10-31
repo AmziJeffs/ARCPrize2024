@@ -1,0 +1,25 @@
+def solve(I):
+    x1 = hsplit(I, TWO)
+    x2 = apply(numcolors, x1)
+    x3 = equality(x2, TWO_BY_TWO)
+    x4 = branch(x3, hsplit, vsplit)
+    x5 = x4(I, TWO)
+    x6 = first(x5)
+    x7 = last(x5)
+    x8 = palette(x6)
+    x9 = palette(x7)
+    x10 = intersection(x8, x9)
+    x11 = first(x10)
+    x12 = palette(x6)
+    x13 = other(x12, x11)
+    x14 = palette(x7)
+    x15 = other(x14, x11)
+    x16 = shape(x6)
+    x17 = canvas(x11, x16)
+    x18 = ofcolor(x6, x13)
+    x19 = ofcolor(x7, x15)
+    x20 = combine(x18, x19)
+    O = fill(x17, EIGHT, x20)
+    return O
+
+
