@@ -9,17 +9,16 @@ from arc_types import *
 import warnings
 warnings.filterwarnings("error")
 
-sys.path.insert(0, '..')
-from misc_utils import *
 
 class Solver():
     """
-    TODO
+    Class for holding and manipulating Hodel DSL solvers.
     """
 
     def __init__(self, solver_text):
         """
-        TODO
+        Parse solver text into name, function_text (w/o docstring), docstring,
+        and function for calling the solver.
         """
         
         self.name = solver_text.split("(", 1)[0].split(" ")[1]
@@ -29,7 +28,7 @@ class Solver():
 
     def read_function(self, solver_text):
         """
-        Read solver_text to get function definition
+        Read solver_text to get function definition.
         """
 
         if '    """\n' not in solver_text:
@@ -53,7 +52,7 @@ class Solver():
 
     def setup_function(self):
         """
-        Read program_text to self.function
+        Read program_text to self.function.
         """
 
         exec(self.function_text)
@@ -62,27 +61,18 @@ class Solver():
 
     def update_docstring(self, new_docstring):
         """
-        new_docstring should not include ''' or similar. It will be inserted between
-        triple quotes in program_text. 
+        Set new docstring.
+
+        new_docstring should not include triple quotes. It will be stored
+        without indents.
         """
 
-        # Make sure input docstring is stripped of indents and leading/trailing newlines
         new_docstring = "\n".join(line.strip() for line in new_docstring.split("\n")).strip()
-
-        # Update self.docstring
         self.docstring = new_docstring
-
-    def randomize_name(self):
-        """
-        Change name to solve_{random label}
-        """
-
-        new_name = f"solve_{random_label()}"
-        self.rename(new_name)
 
     def rename(self, new_name):
         """
-        Change name
+        Change name.
         """
 
         self.function_text = self.function_text.replace(self.name, new_name, 1)
@@ -127,15 +117,20 @@ class Solver():
             return func_text
 
     def __call__(self, input_grid):
+        """
+        Call self.function on an input.
+        """
+
         return self.function(input_grid)
 
     def __str__(self):
+        """
+        Executable string defining the solver, including docstring.
+        """
+
         defn, body = self.function_text.split("\n", 1)
         indented_docstring = "    " + self.docstring.replace("\n", "\n    ") + "\n"
         return defn + "\n" + '    """\n' + indented_docstring + '    """\n' + body
-
-    def __repr__(self):
-        return self.__str__()
 
     def __eq__(self, other):
         """
@@ -152,6 +147,6 @@ class Solver():
 
     def __hash__(self):
         """
-        Only hashes the lines defining the function, not the docstring or name
+        Only hashes the lines defining the function, not the docstring or name.
         """
         return hash(self.function_text.split('\n', 1)[1])
