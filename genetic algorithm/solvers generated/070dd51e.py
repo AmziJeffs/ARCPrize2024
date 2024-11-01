@@ -60,3 +60,18 @@ def solve(I):
     return O
 
 
+def solve(I):
+    x1 = partition(I)
+    x2 = fork(recolor, color, backdrop)
+    x3 = apply(x2, x1)
+    x4 = mfilter(x3, hline)
+    x5 = mfilter(x3, vline)
+    x6 = paint(I, x4)
+    x7 = paint(x6, x5)
+    x8 = underpaint(x7, x4)
+    x9 = objects(x8, T, F, T)
+    x10 = merge(x9)
+    O = paint(x7, x10)
+    return O
+
+
