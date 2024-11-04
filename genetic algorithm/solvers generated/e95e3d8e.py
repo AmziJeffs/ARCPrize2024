@@ -398,3 +398,37 @@ def solve(I):
     return O
 
 
+def solve(I):
+    x1 = palette(I)
+    x2 = objects(I, T, F, F)
+    x3 = lbind(colorfilter, x2)
+    x4 = compose(size, x3)
+    x5 = valmin(x1, x4)
+    x6 = matcher(x4, x5)
+    x7 = sfilter(x1, x6)
+    x8 = lbind(colorcount, I)
+    x9 = argmin(x7, x8)
+    x10 = asobject(I)
+    x11 = matcher(first, x9)
+    x12 = compose(flip, x11)
+    x13 = sfilter(x10, x12)
+    x14 = lbind(contained, x9)
+    x15 = compose(flip, x14)
+    x16 = sfilter(I, x15)
+    x17 = asobject(x16)
+    x18 = hperiod(x17)
+    x19 = dmirror(I)
+    x20 = sfilter(x19, x15)
+    x21 = asobject(x20)
+    x22 = hperiod(x21)
+    x23 = astuple(x22, x9)
+    x24 = lbind(multiply, x23)
+    x25 = neighbors(ORIGIN)
+    x26 = mapply(neighbors, x25)
+    x27 = apply(x24, x26)
+    x28 = lbind(shift, x13)
+    x29 = mapply(x28, x27)
+    O = paint(I, x29)
+    return O
+
+

@@ -52,3 +52,11 @@ def solve(I):
     return O
 
 
+def solve(I):
+    x27 = objects(I, T, T, T)
+    x28 = fork(equality, identity, vmirror)
+    x29 = extract(x27, x28)
+    O = subgrid(x29, I)
+    return O
+
+

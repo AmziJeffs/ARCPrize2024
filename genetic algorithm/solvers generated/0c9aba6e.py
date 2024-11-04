@@ -573,3 +573,27 @@ def solve(I):
     return O
 
 
+def solve(I):
+    x1 = width(I)
+    x2 = halve(x1)
+    x3 = tojvec(x2)
+    x4 = height(I)
+    x5 = decrement(x4)
+    x6 = astuple(x5, x2)
+    x7 = connect(x3, x6)
+    x8 = toobject(x7, I)
+    x9 = numcolors(x8)
+    x5 = equality(x9, ONE)
+    x6 = branch(x5, lefthalf, tophalf)
+    x7 = branch(x5, righthalf, bottomhalf)
+    x8 = x6(I)
+    x9 = x7(I)
+    x10 = shape(x8)
+    x11 = canvas(ZERO, x10)
+    x12 = ofcolor(x8, ZERO)
+    x13 = ofcolor(x9, ZERO)
+    x14 = intersection(x12, x13)
+    O = fill(x11, EIGHT, x14)
+    return O
+
+
