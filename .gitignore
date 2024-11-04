@@ -16,6 +16,8 @@ DSL/arc_dsl_writeup.pdf
 DSL/solvers_to_fix.py
 genetic algorithm/initial_generation_notes.txt
 genetic algorithm/fitness data/data_with_dups/
+genetic algorithm/fitness data/genalg2.json
+genetic algorithm/fitness data/genalg3_first20.json
 LLaMA_analysis.ipynb
 data/LLaMa_outputs/
 kaggle uploading/
