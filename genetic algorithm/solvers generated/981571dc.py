@@ -76,3 +76,42 @@ def solve(I):
     return O
 
 
+def solve(I):
+    x1 = lbind(compose, flip)
+    x2 = lbind(matcher, first)
+    x3 = compose(x1, x2)
+    x4 = rbind(compose, asobject)
+    x5 = lbind(rbind, sfilter)
+    x6 = chain(x4, x5, x3)
+    x7 = rbind(shift, ORIGIN)
+    x8 = compose(x7, dmirror)
+    x9 = rbind(shift, TWO_BY_TWO)
+    x10 = compose(x9, cmirror)
+    x11 = rbind(shift, TWO_BY_ZERO)
+    x12 = compose(x11, hmirror)
+    x13 = rbind(shift, ZERO_BY_TWO)
+    x14 = compose(x13, vmirror)
+    x15 = lbind(fork, paint)
+    x16 = lbind(x15, identity)
+    x17 = lbind(compose, x8)
+    x18 = chain(x16, x17, x6)
+    x19 = lbind(compose, x10)
+    x20 = chain(x16, x19, x6)
+    x21 = lbind(compose, x10)
+    x22 = chain(x16, x21, x6)
+    x23 = lbind(compose, x14)
+    x24 = chain(x16, x23, x6)
+    x25 = rbind(rapply, I)
+    x26 = chain(first, x25, initset)
+    x27 = fork(compose, x24, x22)
+    x28 = fork(compose, x20, x18)
+    x29 = fork(compose, x27, x28)
+    x30 = compose(x26, x29)
+    x31 = palette(I)
+    x32 = fork(equality, identity, dmirror)
+    x33 = compose(x32, x30)
+    x34 = argmax(x31, x33)
+    O = x30(x34)
+    return O
+
+
