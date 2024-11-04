@@ -15,6 +15,7 @@ DSL/DSL_experiments.ipynb
 DSL/arc_dsl_writeup.pdf
 DSL/solvers_to_fix.py
 genetic algorithm/initial_generation_notes.txt
+genetic algorithm/fitness data/data_with_dups/
 LLaMA_analysis.ipynb
 data/LLaMa_outputs/
 kaggle uploading/
