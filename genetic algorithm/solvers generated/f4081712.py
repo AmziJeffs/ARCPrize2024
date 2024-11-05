@@ -321,3 +321,63 @@ def solve(I):
     return O
 
 
+def solve(I):
+    x1 = replace(I, THREE, NEG_ONE)
+    x2 = dmirror(x1)
+    x3 = papply(pair, x2, x1)
+    x4 = lbind(apply, maximum)
+    x5 = apply(x4, x3)
+    x6 = cmirror(x5)
+    x7 = papply(pair, x5, x6)
+    x8 = apply(x4, x7)
+    x9 = hmirror(x8)
+    x10 = papply(pair, x8, x9)
+    x11 = apply(x4, x10)
+    x12 = vmirror(x11)
+    x13 = papply(pair, x12, x11)
+    x14 = apply(x4, x13)
+    x15 = ofcolor(I, THREE)
+    O = subgrid(x15, x14)
+    return O
+
+
+def solve(I):
+    x1 = replace(I, THREE, NEG_ONE)
+    x2 = dmirror(x1)
+    x3 = papply(pair, x1, x2)
+    x4 = lbind(apply, maximum)
+    x5 = apply(x4, x3)
+    x6 = cmirror(x5)
+    x9 = papply(pair, x5, x6)
+    x10 = apply(x4, x9)
+    x11 = hmirror(x10)
+    x12 = papply(pair, x10, x11)
+    x13 = apply(x4, x12)
+    x14 = vmirror(x13)
+    x15 = papply(pair, x13, x14)
+    x16 = apply(x4, x15)
+    x17 = ofcolor(I, THREE)
+    O = subgrid(x17, x16)
+    return O
+
+
+def solve(I):
+    x1 = replace(I, THREE, NEG_ONE)
+    x2 = dmirror(x1)
+    x3 = papply(pair, x1, x2)
+    x4 = lbind(apply, maximum)
+    x5 = apply(x4, x3)
+    x6 = cmirror(x5)
+    x7 = papply(pair, x5, x6)
+    x8 = apply(x4, x7)
+    x9 = hmirror(I)
+    x10 = papply(pair, x8, x9)
+    x11 = apply(x4, x10)
+    x12 = vmirror(x11)
+    x13 = papply(pair, x12, x11)
+    x14 = apply(x4, x13)
+    x15 = ofcolor(I, THREE)
+    O = subgrid(x15, x14)
+    return O
+
+

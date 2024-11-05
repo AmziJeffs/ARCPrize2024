@@ -22,3 +22,10 @@ def solve(I):
     return O
 
 
+def solve(I):
+    x2 = numcolors(I)
+    x3 = decrement(x2)
+    O = upscale(I, x3)
+    return O
+
+

@@ -60,3 +60,28 @@ def solve(I):
     return O
 
 
+def solve(I):
+    x6 = objects(I, T, T, T)
+    x7 = fork(equality, identity, vmirror)
+    x8 = extract(x6, x7)
+    O = subgrid(x8, I)
+    return O
+
+
+def solve(I):
+    x1 = objects(I, T, T, T)
+    x2 = objects(I, T, T, T)
+    x3 = fork(equality, identity, vmirror)
+    x4 = extract(x2, x3)
+    O = subgrid(x4, I)
+    return O
+
+
+def solve(I):
+    x1 = objects(I, T, T, ORIGIN)
+    x2 = fork(equality, identity, vmirror)
+    x3 = extract(x1, x2)
+    O = subgrid(x3, I)
+    return O
+
+
