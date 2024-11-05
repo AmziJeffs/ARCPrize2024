@@ -381,3 +381,87 @@ def solve(I):
     return O
 
 
+def solve(I):
+    x1 = hmirror(I)
+    x2 = replace(I, THREE, NEG_ONE)
+    x3 = dmirror(x2)
+    x4 = papply(pair, x2, x3)
+    x5 = lbind(apply, maximum)
+    x6 = apply(x5, x4)
+    x7 = cmirror(x6)
+    x8 = papply(pair, x6, x7)
+    x9 = apply(x5, x8)
+    x10 = hmirror(x9)
+    x11 = papply(pair, x9, x10)
+    x12 = apply(x5, x11)
+    x13 = vmirror(x12)
+    x14 = papply(pair, x12, x13)
+    x15 = apply(x5, x14)
+    x16 = ofcolor(I, THREE)
+    O = subgrid(x16, x15)
+    return O
+
+
+def solve(I):
+    x1 = ofcolor(I, THREE)
+    x2 = replace(I, THREE, ZERO)
+    x3 = dmirror(x2)
+    x4 = papply(pair, x2, x3)
+    x5 = lbind(apply, maximum)
+    x6 = apply(x5, x4)
+    x7 = cmirror(x6)
+    x8 = papply(pair, x6, x7)
+    x9 = apply(x5, x8)
+    x10 = hmirror(x9)
+    x11 = papply(pair, x9, x10)
+    x12 = apply(x5, x11)
+    x13 = vmirror(x12)
+    x14 = papply(pair, x12, x13)
+    x15 = apply(x5, x14)
+    x16 = ofcolor(I, THREE)
+    O = subgrid(x16, x15)
+    return O
+
+
+def solve(I):
+    x1 = objects(I, T, F, F)
+    x2 = replace(I, THREE, NEG_ONE)
+    x3 = dmirror(x2)
+    x4 = papply(pair, x2, x3)
+    x5 = lbind(apply, maximum)
+    x6 = apply(x5, x4)
+    x7 = cmirror(x6)
+    x8 = papply(pair, x6, x7)
+    x9 = apply(x5, x8)
+    x10 = hmirror(x9)
+    x11 = papply(pair, x9, x10)
+    x12 = apply(x5, x11)
+    x13 = vmirror(x12)
+    x14 = papply(pair, x12, x13)
+    x15 = apply(x5, x14)
+    x16 = ofcolor(I, THREE)
+    O = subgrid(x16, x15)
+    return O
+
+
+def solve(I):
+    x1 = vmirror(I)
+    x2 = replace(x1, THREE, NEG_ONE)
+    x3 = dmirror(x2)
+    x4 = papply(pair, x2, x3)
+    x5 = lbind(apply, maximum)
+    x6 = apply(x5, x4)
+    x7 = cmirror(x6)
+    x8 = papply(pair, x6, x7)
+    x9 = apply(x5, x8)
+    x10 = hmirror(x9)
+    x11 = papply(pair, x9, x10)
+    x12 = apply(x5, x11)
+    x13 = vmirror(x12)
+    x14 = papply(pair, x12, x13)
+    x15 = apply(x5, x14)
+    x16 = ofcolor(I, THREE)
+    O = subgrid(x16, x15)
+    return O
+
+
