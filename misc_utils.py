@@ -40,6 +40,17 @@ def grid_to_string_compact(grid):
     return "\n".join(["".join([str(entry) for entry in row]) for row in grid])
 
 
+def create_docstring(in_grid, out_grid):
+    """
+    Create a solver docstring (not indented) using input/output grid.
+    """
+
+    in_str = grid_to_string_compact(in_grid)
+    out_str = grid_to_string_compact(out_grid)
+
+    return f"INPUT:\n{in_str}\nOUTPUT:\n{out_str}"
+
+
 def create_generation_prompt(in_grid, out_grid, name = 'solve'):
     """
     Create a solver with a docstring but no body, for model to complete during
