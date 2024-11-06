@@ -3230,17 +3230,17 @@ def solve_6cf79266(I):
 
 def solve_a87f7484(I):
     x1 = numcolors(I)
-    x3 = portrait(I)
-    x4 = branch(x3, dmirror, identity)
-    x5 = x4(I)
-    x6 = decrement(x1)
-    x7 = hsplit(x5, x6)
-    x8 = rbind(ofcolor, ZERO)
-    x9 = apply(x8, x7)
-    x10 = leastcommon(x9)
-    x11 = matcher(x8, x10)
-    x12 = extract(x7, x11)
-    O = x4(x12)
+    x2 = portrait(I)
+    x3 = branch(x2, dmirror, identity)
+    x4 = x3(I)
+    x5 = decrement(x1)
+    x6 = hsplit(x4, x5)
+    x7 = rbind(ofcolor, ZERO)
+    x8 = apply(x7, x6)
+    x9 = leastcommon(x8)
+    x10 = matcher(x7, x9)
+    x11 = extract(x6, x10)
+    O = x3(x11)
     return O
 
 
