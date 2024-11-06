@@ -201,7 +201,7 @@ def minimum(
 def valmax(
     container: Container,
     compfunc: Callable
-) -> Integer:
+) -> Numerical:
     """ maximum by custom function """
     return compfunc(max(container, key=compfunc, default=0))
 
@@ -405,8 +405,8 @@ def interval(
 
 
 def astuple(
-    a: Integer,
-    b: Integer
+    a: Any,
+    b: Any
 ) -> IntegerTuple:
     """ constructs a tuple """
     return (a, b)
@@ -552,7 +552,7 @@ def mpapply(
 
 
 def prapply(
-    function,
+    function: Callable,
     a: Container,
     b: Container
 ) -> FrozenSet:
@@ -917,7 +917,7 @@ def palette(
 
 def numcolors(
     element: Element
-) -> IntegerSet:
+) -> Integer:
     """ number of colors occurring in object or grid """
     return len(palette(element))
 
