@@ -2,7 +2,7 @@ from dsl import *
 from constants import *
 
 
-def solve_007bbfb7(I):
+def verify_007bbfb7(I):
     x1 = palette(I)
     x2 = other(x1, ZERO)
     x3 = shape(I)
@@ -18,7 +18,7 @@ def solve_007bbfb7(I):
     return O
 
 
-def solve_00d62c1b(I):
+def verify_00d62c1b(I):
     x1 = objects(I, T, F, F)
     x2 = mostcolor(I)
     x3 = colorfilter(x1, x2)
@@ -29,7 +29,7 @@ def solve_00d62c1b(I):
     return O
 
 
-def solve_017c7c7b(I):
+def verify_017c7c7b(I):
     x1 = palette(I)
     x2 = other(x1, ZERO)
     x3 = ofcolor(I, x2)
@@ -50,7 +50,7 @@ def solve_017c7c7b(I):
     return O
 
 
-def solve_025d127b(I):
+def verify_025d127b(I):
     x1 = mostcolor(I)
     x2 = objects(I, T, T, T)
     x3 = rbind(objects, F)
@@ -77,7 +77,7 @@ def solve_025d127b(I):
     return O
 
 
-def solve_045e512c(I):
+def verify_045e512c(I):
     x1 = objects(I, T, T, T)
     x2 = argmax(x1, size)
     x3 = height(x2)
@@ -114,7 +114,7 @@ def solve_045e512c(I):
     return O
 
 
-def solve_0520fde7(I):
+def verify_0520fde7(I):
     x1 = width(I)
     x2 = halve(x1)
     x3 = tojvec(x2)
@@ -142,7 +142,7 @@ def solve_0520fde7(I):
     return O
 
 
-def solve_05269061(I):
+def verify_05269061(I):
     x1 = shape(I)
     x2 = maximum(x1)
     x3 = interval(ZERO, x2, ONE)
@@ -229,7 +229,7 @@ def solve_05269061(I):
     return O
 
 
-def solve_05f2a901(I):
+def verify_05f2a901(I):
     x1 = objects(I, T, T, T)
     x2 = fork(multiply, height, width)
     x3 = fork(equality, size, x2)
@@ -240,7 +240,7 @@ def solve_05f2a901(I):
     return O
 
 
-def solve_06df4c85(I):
+def verify_06df4c85(I):
     x1 = asobject(I)
     x2 = frontiers(I)
     x3 = merge(x2)
@@ -272,7 +272,7 @@ def solve_06df4c85(I):
     return O
 
 
-def solve_08ed6ac7(I):
+def verify_08ed6ac7(I):
     x1 = first(I)
     x2 = mostcommon(x1)
     x3 = dmirror(I)
@@ -305,7 +305,7 @@ def solve_08ed6ac7(I):
     return O
 
 
-def solve_09629e4f(I):
+def verify_09629e4f(I):
     x1 = frontiers(I)
     x2 = sfilter(x1, hline)
     x3 = sfilter(x1, vline)
@@ -335,7 +335,7 @@ def solve_09629e4f(I):
     return O
 
 
-def solve_0962bcdd(I):
+def verify_0962bcdd(I):
     x1 = objects(I, F, T, T)
     x2 = lbind(mapply, dneighbors)
     x3 = compose(x2, toindices)
@@ -353,7 +353,7 @@ def solve_0962bcdd(I):
     return O
 
 
-def solve_0a938d79(I):
+def verify_0a938d79(I):
     x1 = portrait(I)
     x2 = branch(x1, dmirror, identity)
     x3 = x2(I)
@@ -380,7 +380,7 @@ def solve_0a938d79(I):
     return O
 
 
-def solve_0b148d64(I):
+def verify_0b148d64(I):
     x1 = partition(I)
     x2 = fork(multiply, height, width)
     x3 = argmin(x1, x2)
@@ -388,7 +388,7 @@ def solve_0b148d64(I):
     return O
 
 
-def solve_0ca9ddb6(I):
+def verify_0ca9ddb6(I):
     x1 = ofcolor(I, ONE)
     x2 = ofcolor(I, TWO)
     x3 = mapply(dneighbors, x1)
@@ -398,7 +398,7 @@ def solve_0ca9ddb6(I):
     return O
 
 
-def solve_0d3d703e(I):
+def verify_0d3d703e(I):
     x1 = switch(I, THREE, FOUR)
     x2 = switch(x1, EIGHT, NINE)
     x3 = switch(x2, TWO, SIX)
@@ -406,7 +406,7 @@ def solve_0d3d703e(I):
     return O
 
 
-def solve_0dfd9992(I):
+def verify_0dfd9992(I):
     x1 = palette(I)
     x2 = objects(I, T, F, F)
     x3 = lbind(colorfilter, x2)
@@ -440,7 +440,7 @@ def solve_0dfd9992(I):
     return O
 
 
-def solve_0e206a2e(I):
+def verify_0e206a2e(I):
     x1 = objects(I, F, F, T)
     x2 = matcher(numcolors, FOUR)
     x3 = sfilter(x1, x2)
@@ -479,7 +479,7 @@ def solve_0e206a2e(I):
     return O
 
 
-def solve_10fcaaa3(I):
+def verify_10fcaaa3(I):
     x1 = hconcat(I, I)
     x2 = vconcat(x1, x1)
     x3 = asindices(x2)
@@ -491,7 +491,7 @@ def solve_10fcaaa3(I):
     return O
 
 
-def solve_11852cab(I):
+def verify_11852cab(I):
     x1 = mostcolor(I)
     x2 = lbind(remove, x1)
     x3 = chain(positive, size, x2)
@@ -563,7 +563,7 @@ def solve_11852cab(I):
     return O
 
 
-def solve_1190e5a7(I):
+def verify_1190e5a7(I):
     x1 = asindices(I)
     x2 = corners(x1)
     x3 = toobject(x2, I)
@@ -585,7 +585,7 @@ def solve_1190e5a7(I):
     return O
 
 
-def solve_137eaa0f(I):
+def verify_137eaa0f(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = palette(x2)
@@ -621,7 +621,7 @@ def solve_137eaa0f(I):
     return O
 
 
-def solve_150deff5(I):
+def verify_150deff5(I):
     x1 = mostcolor(I)
     x2 = leastcolor(I)
     x3 = shape(I)
@@ -699,7 +699,7 @@ def solve_150deff5(I):
     return O
 
 
-def solve_178fcbfb(I):
+def verify_178fcbfb(I):
     x1 = ofcolor(I, TWO)
     x2 = ofcolor(I, THREE)
     x3 = ofcolor(I, ONE)
@@ -712,7 +712,7 @@ def solve_178fcbfb(I):
     return O
 
 
-def solve_1a07d186(I):
+def verify_1a07d186(I):
     x1 = frontiers(I)
     x2 = mostcolor(I)
     x3 = asindices(I)
@@ -735,7 +735,7 @@ def solve_1a07d186(I):
     return O
 
 
-def solve_1b2d62fb(I):
+def verify_1b2d62fb(I):
     x1 = width(I)
     x2 = halve(x1)
     x3 = tojvec(x2)
@@ -759,7 +759,7 @@ def solve_1b2d62fb(I):
     return O
 
 
-def solve_1b60fb0c(I):
+def verify_1b60fb0c(I):
     x1 = fgpartition(I)
     x2 = mapply(toindices, x1)
     x3 = rot90(I)
@@ -802,7 +802,7 @@ def solve_1b60fb0c(I):
     return O
 
 
-def solve_1bfc4729(I):
+def verify_1bfc4729(I):
     x1 = tophalf(I)
     x2 = bottomhalf(I)
     x3 = leastcolor(x1)
@@ -847,7 +847,7 @@ def solve_1bfc4729(I):
     return O
 
 
-def solve_1c786137(I):
+def verify_1c786137(I):
     x1 = objects(I, T, F, F)
     x2 = lbind(colorfilter, x1)
     x3 = compose(size, x2)
@@ -867,7 +867,7 @@ def solve_1c786137(I):
     return O
 
 
-def solve_1caeab9d(I):
+def verify_1caeab9d(I):
     x1 = objects(I, T, T, T)
     x2 = ofcolor(I, ONE)
     x3 = lowermost(x2)
@@ -881,7 +881,7 @@ def solve_1caeab9d(I):
     return O
 
 
-def solve_1cf80156(I):
+def verify_1cf80156(I):
     x1 = frontiers(I)
     x2 = merge(x1)
     x3 = color(x2)
@@ -894,7 +894,7 @@ def solve_1cf80156(I):
     return O
 
 
-def solve_1e0a9b12(I):
+def verify_1e0a9b12(I):
     x1 = mostcolor(I)
     x2 = rot270(I)
     x3 = matcher(identity, x1)
@@ -907,7 +907,7 @@ def solve_1e0a9b12(I):
     return O
 
 
-def solve_1e32b0e9(I):
+def verify_1e32b0e9(I):
     x1 = frontiers(I)
     x2 = totuple(x1)
     x3 = apply(color, x2)
@@ -944,7 +944,7 @@ def solve_1e32b0e9(I):
     return O
 
 
-def solve_1f0c79e5(I):
+def verify_1f0c79e5(I):
     x1 = objects(I, F, F, T)
     x2 = rbind(other, TWO)
     x3 = compose(x2, palette)
@@ -967,7 +967,7 @@ def solve_1f0c79e5(I):
     return O
 
 
-def solve_1f642eb9(I):
+def verify_1f642eb9(I):
     x1 = objects(I, T, F, F)
     x2 = fork(multiply, height, width)
     x3 = fork(equality, size, x2)
@@ -992,7 +992,7 @@ def solve_1f642eb9(I):
     return O
 
 
-def solve_1f85a75f(I):
+def verify_1f85a75f(I):
     x1 = objects(I, T, F, T)
     x2 = totuple(x1)
     x3 = apply(color, x2)
@@ -1009,7 +1009,7 @@ def solve_1f85a75f(I):
     return O
 
 
-def solve_1f876c06(I):
+def verify_1f876c06(I):
     x1 = fgpartition(I)
     x2 = compose(last, first)
     x3 = power(last, TWO)
@@ -1020,7 +1020,7 @@ def solve_1f876c06(I):
     return O
 
 
-def solve_1fad071e(I):
+def verify_1fad071e(I):
     x1 = objects(I, T, F, T)
     x2 = colorfilter(x1, ONE)
     x3 = sizefilter(x2, FOUR)
@@ -1037,7 +1037,7 @@ def solve_1fad071e(I):
     return O
 
 
-def solve_2013d3e2(I):
+def verify_2013d3e2(I):
     x1 = lbind(apply, last)
     x2 = compose(positive, first)
     x3 = lbind(interval, ZERO)
@@ -1070,7 +1070,7 @@ def solve_2013d3e2(I):
     return O
 
 
-def solve_2204b7a8(I):
+def verify_2204b7a8(I):
     x1 = first(I)
     x2 = dedupe(x1)
     x3 = size(x2)
@@ -1109,7 +1109,7 @@ def solve_2204b7a8(I):
     return O
 
 
-def solve_22168020(I):
+def verify_22168020(I):
     x1 = palette(I)
     x2 = mostcolor(I)
     x3 = remove(x2, x1)
@@ -1123,7 +1123,7 @@ def solve_22168020(I):
     return O
 
 
-def solve_22233c11(I):
+def verify_22233c11(I):
     x1 = objects(I, T, T, T)
     x2 = rbind(upscale, TWO)
     x3 = chain(invert, halve, shape)
@@ -1139,7 +1139,7 @@ def solve_22233c11(I):
     return O
 
 
-def solve_2281f1f4(I):
+def verify_2281f1f4(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = apply(first, x2)
@@ -1164,7 +1164,7 @@ def solve_2281f1f4(I):
     return O
 
 
-def solve_228f6490(I):
+def verify_228f6490(I):
     x1 = mostcolor(I)
     x2 = objects(I, T, T, F)
     x3 = colorfilter(x2, x1)
@@ -1195,7 +1195,7 @@ def solve_228f6490(I):
     return O
 
 
-def solve_22eb0ac0(I):
+def verify_22eb0ac0(I):
     x1 = mostcolor(I)
     x2 = asobject(I)
     x3 = matcher(first, x1)
@@ -1243,7 +1243,7 @@ def solve_22eb0ac0(I):
     return O
 
 
-def solve_234bbc79(I):
+def verify_234bbc79(I):
     x1 = objects(I, F, F, T)
     x2 = order(x1, leftmost)
     x3 = astuple(ONE, TWO)
@@ -1335,7 +1335,7 @@ def solve_234bbc79(I):
     return O
 
 
-def solve_23581191(I):
+def verify_23581191(I):
     x1 = mostcolor(I)
     x2 = palette(I)
     x3 = remove(x1, x2)
@@ -1359,7 +1359,7 @@ def solve_23581191(I):
     return O
 
 
-def solve_239be575(I):
+def verify_239be575(I):
     x1 = objects(I, T, F, F)
     x2 = lbind(apply, normalize)
     x3 = lbind(colorfilter, x1)
@@ -1394,7 +1394,7 @@ def solve_239be575(I):
     return O
 
 
-def solve_23b5c85d(I):
+def verify_23b5c85d(I):
     x1 = partition(I)
     x2 = fork(multiply, height, width)
     x3 = fork(equality, size, x2)
@@ -1404,7 +1404,7 @@ def solve_23b5c85d(I):
     return O
 
 
-def solve_253bf280(I):
+def verify_253bf280(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = prapply(connect, x2, x2)
@@ -1419,7 +1419,7 @@ def solve_253bf280(I):
     return O
 
 
-def solve_25d487eb(I):
+def verify_25d487eb(I):
     x1 = objects(I, F, F, T)
     x2 = lbind(matcher, first)
     x3 = compose(x2, leastcolor)
@@ -1441,7 +1441,7 @@ def solve_25d487eb(I):
     return O
 
 
-def solve_25d8a9c8(I):
+def verify_25d8a9c8(I):
     x1 = width(I)
     x2 = rbind(branch, ZERO)
     x3 = rbind(x2, FIVE)
@@ -1454,14 +1454,14 @@ def solve_25d8a9c8(I):
     return O
 
 
-def solve_25ff71a9(I):
+def verify_25ff71a9(I):
     x1 = objects(I, T, T, T)
     x2 = first(x1)
     O = move(I, x2, DOWN)
     return O
 
 
-def solve_264363fd(I):
+def verify_264363fd(I):
     x1 = objects(I, T, F, F)
     x2 = fork(multiply, height, width)
     x3 = argmax(x1, x2)
@@ -1514,7 +1514,7 @@ def solve_264363fd(I):
     return O
 
 
-def solve_272f95fa(I):
+def verify_272f95fa(I):
     x1 = objects(I, T, F, F)
     x2 = index(I, ORIGIN)
     x3 = colorfilter(x1, x2)
@@ -1539,7 +1539,7 @@ def solve_272f95fa(I):
     return O
 
 
-def solve_27a28665(I):
+def verify_27a28665(I):
     x1 = lbind(apply, last)
     x2 = compose(positive, first)
     x3 = lbind(interval, ZERO)
@@ -1582,7 +1582,7 @@ def solve_27a28665(I):
     return O
 
 
-def solve_28bf18c6(I):
+def verify_28bf18c6(I):
     x1 = objects(I, T, T, T)
     x2 = first(x1)
     x3 = subgrid(x2, I)
@@ -1590,7 +1590,7 @@ def solve_28bf18c6(I):
     return O
 
 
-def solve_28e73c20(I):
+def verify_28e73c20(I):
     x1 = astuple(RIGHT, DOWN)
     x2 = astuple(DOWN, LEFT)
     x3 = astuple(x1, x2)
@@ -1683,7 +1683,7 @@ def solve_28e73c20(I):
     return O
 
 
-def solve_29623171(I):
+def verify_29623171(I):
     x1 = compress(I)
     x2 = leastcolor(x1)
     x3 = mostcolor(x1)
@@ -1726,7 +1726,7 @@ def solve_29623171(I):
     return O
 
 
-def solve_29c11459(I):
+def verify_29c11459(I):
     x1 = objects(I, T, F, T)
     x2 = product(x1, x1)
     x3 = fork(hmatching, first, last)
@@ -1770,7 +1770,7 @@ def solve_29c11459(I):
     return O
 
 
-def solve_29ec7d0e(I):
+def verify_29ec7d0e(I):
     x1 = palette(I)
     x2 = objects(I, T, F, F)
     x3 = lbind(colorfilter, x2)
@@ -1804,7 +1804,7 @@ def solve_29ec7d0e(I):
     return O
 
 
-def solve_2bcee788(I):
+def verify_2bcee788(I):
     x1 = partition(I)
     x2 = fork(multiply, height, width)
     x3 = argmax(x1, x2)
@@ -1830,7 +1830,7 @@ def solve_2bcee788(I):
     return O
 
 
-def solve_2bee17df(I):
+def verify_2bee17df(I):
     x1 = trim(I)
     x2 = mostcolor(x1)
     x3 = repeat(x2, ONE)
@@ -1855,7 +1855,7 @@ def solve_2bee17df(I):
     return O
 
 
-def solve_2c608aff(I):
+def verify_2c608aff(I):
     x1 = partition(I)
     x2 = fork(equality, toindices, backdrop)
     x3 = sfilter(x1, x2)
@@ -1885,7 +1885,7 @@ def solve_2c608aff(I):
     return O
 
 
-def solve_2dc579da(I):
+def verify_2dc579da(I):
     x1 = frontiers(I)
     x2 = mfilter(x1, hline)
     x3 = mfilter(x1, vline)
@@ -1939,7 +1939,7 @@ def solve_2dc579da(I):
     return O
 
 
-def solve_2dd70a9a(I):
+def verify_2dd70a9a(I):
     x1 = ofcolor(I, TWO)
     x2 = vline(x1)
     x3 = branch(x2, dmirror, identity)
@@ -2014,13 +2014,13 @@ def solve_2dd70a9a(I):
     return O
 
 
-def solve_2dee498d(I):
+def verify_2dee498d(I):
     x1 = hsplit(I, THREE)
     O = first(x1)
     return O
 
 
-def solve_31aa019c(I):
+def verify_31aa019c(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = first(x2)
@@ -2034,7 +2034,7 @@ def solve_31aa019c(I):
     return O
 
 
-def solve_321b1fc6(I):
+def verify_321b1fc6(I):
     x1 = objects(I, F, F, T)
     x2 = argmax(x1, numcolors)
     x3 = remove(x2, x1)
@@ -2047,7 +2047,7 @@ def solve_321b1fc6(I):
     return O
 
 
-def solve_32597951(I):
+def verify_32597951(I):
     x1 = partition(I)
     x2 = fork(multiply, height, width)
     x3 = argmin(x1, x2)
@@ -2056,7 +2056,7 @@ def solve_32597951(I):
     return O
 
 
-def solve_3345333e(I):
+def verify_3345333e(I):
     x1 = asindices(I)
     x2 = box(x1)
     x3 = toobject(x2, I)
@@ -2107,7 +2107,7 @@ def solve_3345333e(I):
     return O
 
 
-def solve_3428a4f5(I):
+def verify_3428a4f5(I):
     x1 = width(I)
     x2 = halve(x1)
     x3 = tojvec(x2)
@@ -2137,7 +2137,7 @@ def solve_3428a4f5(I):
     return O
 
 
-def solve_3618c87e(I):
+def verify_3618c87e(I):
     x1 = mostcolor(I)
     x2 = objects(I, T, F, F)
     x3 = sizefilter(x2, ONE)
@@ -2182,7 +2182,7 @@ def solve_3618c87e(I):
     return O
 
 
-def solve_3631a71a(I):
+def verify_3631a71a(I):
     x1 = lbind(compose, flip)
     x2 = lbind(matcher, first)
     x3 = compose(x1, x2)
@@ -2221,7 +2221,7 @@ def solve_3631a71a(I):
     return O
 
 
-def solve_363442ee(I):
+def verify_363442ee(I):
     x1 = frontiers(I)
     x2 = merge(x1)
     x3 = mostcolor(I)
@@ -2241,7 +2241,7 @@ def solve_363442ee(I):
     return O
 
 
-def solve_36d67576(I):
+def verify_36d67576(I):
     x1 = objects(I, F, T, T)
     x2 = argmax(x1, size)
     x3 = remove(x2, x1)
@@ -2296,7 +2296,7 @@ def solve_36d67576(I):
     return O
 
 
-def solve_36fdfd69(I):
+def verify_36fdfd69(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = fork(subtract, first, last)
@@ -2320,7 +2320,7 @@ def solve_36fdfd69(I):
     return O
 
 
-def solve_3906de3d(I):
+def verify_3906de3d(I):
     x1 = first(I)
     x2 = dedupe(x1)
     x3 = size(x2)
@@ -2365,7 +2365,7 @@ def solve_3906de3d(I):
     return O
 
 
-def solve_39a8645d(I):
+def verify_39a8645d(I):
     x1 = objects(I, T, T, T)
     x2 = totuple(x1)
     x3 = apply(normalize, x2)
@@ -2377,7 +2377,7 @@ def solve_39a8645d(I):
     return O
 
 
-def solve_39e1d7f9(I):
+def verify_39e1d7f9(I):
     x1 = compress(I)
     x2 = objects(x1, F, F, T)
     x3 = argmax(x2, numcolors)
@@ -2451,14 +2451,14 @@ def solve_39e1d7f9(I):
     return O
 
 
-def solve_3aa6fb7a(I):
+def verify_3aa6fb7a(I):
     x1 = objects(I, T, F, T)
     x2 = mapply(corners, x1)
     O = underfill(I, ONE, x2)
     return O
 
 
-def solve_3ac3eb23(I):
+def verify_3ac3eb23(I):
     x1 = astuple(identity, dmirror)
     x2 = astuple(cmirror, hmirror)
     x3 = combine(x1, x2)
@@ -2496,7 +2496,7 @@ def solve_3ac3eb23(I):
     return O
 
 
-def solve_3af2c5a8(I):
+def verify_3af2c5a8(I):
     x1 = vmirror(I)
     x2 = hconcat(I, x1)
     x3 = hmirror(x2)
@@ -2504,7 +2504,7 @@ def solve_3af2c5a8(I):
     return O
 
 
-def solve_3bd67248(I):
+def verify_3bd67248(I):
     x1 = astuple(identity, identity)
     x2 = astuple(rot90, rot270)
     x3 = astuple(x1, x2)
@@ -2546,7 +2546,7 @@ def solve_3bd67248(I):
     return O
 
 
-def solve_3bdb4ada(I):
+def verify_3bdb4ada(I):
     x1 = partition(I)
     x2 = fork(multiply, height, width)
     x3 = fork(equality, size, x2)
@@ -2570,7 +2570,7 @@ def solve_3bdb4ada(I):
     return O
 
 
-def solve_3befdf3e(I):
+def verify_3befdf3e(I):
     x1 = objects(I, F, F, T)
     x2 = rbind(compose, last)
     x3 = lbind(rbind, contained)
@@ -2601,12 +2601,12 @@ def solve_3befdf3e(I):
     return O
 
 
-def solve_3c9b0459(I):
+def verify_3c9b0459(I):
     O = rot180(I)
     return O
 
 
-def solve_3de23699(I):
+def verify_3de23699(I):
     x1 = asindices(I)
     x2 = corners(x1)
     x3 = mapply(dneighbors, x2)
@@ -2626,7 +2626,7 @@ def solve_3de23699(I):
     return O
 
 
-def solve_3e980e27(I):
+def verify_3e980e27(I):
     x1 = ofcolor(I, THREE)
     x2 = ofcolor(I, TWO)
     x3 = matcher(first, THREE)
@@ -2681,7 +2681,7 @@ def solve_3e980e27(I):
     return O
 
 
-def solve_3eda0437(I):
+def verify_3eda0437(I):
     x1 = matcher(identity, ZERO)
     x2 = rbind(sfilter, x1)
     x3 = compose(size, x2)
@@ -2730,7 +2730,7 @@ def solve_3eda0437(I):
     return O
 
 
-def solve_3f7978a0(I):
+def verify_3f7978a0(I):
     x1 = partition(I)
     x2 = objects(I, T, F, F)
     x3 = compose(double, height)
@@ -2765,7 +2765,7 @@ def solve_3f7978a0(I):
     return O
 
 
-def solve_40853293(I):
+def verify_40853293(I):
     x1 = partition(I)
     x2 = fork(recolor, color, backdrop)
     x3 = apply(x2, x1)
@@ -2776,7 +2776,7 @@ def solve_40853293(I):
     return O
 
 
-def solve_4093f84a(I):
+def verify_4093f84a(I):
     x1 = frontiers(I)
     x2 = merge(x1)
     x3 = palette(x2)
@@ -2820,7 +2820,7 @@ def solve_4093f84a(I):
     return O
 
 
-def solve_41e4d17e(I):
+def verify_41e4d17e(I):
     x1 = lbind(equality, NINE)
     x2 = compose(x1, size)
     x3 = fork(equality, height, width)
@@ -2834,7 +2834,7 @@ def solve_41e4d17e(I):
     return O
 
 
-def solve_4258a5f9(I):
+def verify_4258a5f9(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = mapply(neighbors, x2)
@@ -2843,7 +2843,7 @@ def solve_4258a5f9(I):
     return O
 
 
-def solve_4290ef0e(I):
+def verify_4290ef0e(I):
     x1 = mostcolor(I)
     x2 = fgpartition(I)
     x3 = objects(I, T, F, T)
@@ -2891,7 +2891,7 @@ def solve_4290ef0e(I):
     return O
 
 
-def solve_42a50994(I):
+def verify_42a50994(I):
     x1 = objects(I, F, T, T)
     x2 = sizefilter(x1, ONE)
     x3 = merge(x2)
@@ -2899,7 +2899,7 @@ def solve_42a50994(I):
     return O
 
 
-def solve_4347f46a(I):
+def verify_4347f46a(I):
     x1 = objects(I, T, F, T)
     x2 = fork(difference, toindices, box)
     x3 = mapply(x2, x1)
@@ -2908,7 +2908,7 @@ def solve_4347f46a(I):
     return O
 
 
-def solve_444801d8(I):
+def verify_444801d8(I):
     x1 = objects(I, T, F, T)
     x2 = sizefilter(x1, ONE)
     x3 = difference(x1, x2)
@@ -2931,7 +2931,7 @@ def solve_444801d8(I):
     return O
 
 
-def solve_445eab21(I):
+def verify_445eab21(I):
     x1 = objects(I, T, F, T)
     x2 = fork(multiply, height, width)
     x3 = argmax(x1, x2)
@@ -2940,7 +2940,7 @@ def solve_445eab21(I):
     return O
 
 
-def solve_447fd412(I):
+def verify_447fd412(I):
     x1 = asobject(I)
     x2 = shape(I)
     x3 = shift(x1, x2)
@@ -2989,7 +2989,7 @@ def solve_447fd412(I):
     return O
 
 
-def solve_44d8ac46(I):
+def verify_44d8ac46(I):
     x1 = objects(I, T, F, T)
     x2 = apply(delta, x1)
     x3 = mfilter(x2, square)
@@ -2997,7 +2997,7 @@ def solve_44d8ac46(I):
     return O
 
 
-def solve_44f52bb0(I):
+def verify_44f52bb0(I):
     x1 = vmirror(I)
     x2 = equality(x1, I)
     x3 = hmirror(I)
@@ -3008,7 +3008,7 @@ def solve_44f52bb0(I):
     return O
 
 
-def solve_4522001f(I):
+def verify_4522001f(I):
     x1 = shape(I)
     x2 = multiply(THREE, x1)
     x3 = mostcolor(I)
@@ -3055,7 +3055,7 @@ def solve_4522001f(I):
     return O
 
 
-def solve_4612dd53(I):
+def verify_4612dd53(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = box(x2)
@@ -3076,7 +3076,7 @@ def solve_4612dd53(I):
     return O
 
 
-def solve_46442a0e(I):
+def verify_46442a0e(I):
     x1 = rot90(I)
     x2 = rot180(I)
     x3 = rot270(I)
@@ -3086,7 +3086,7 @@ def solve_46442a0e(I):
     return O
 
 
-def solve_469497ad(I):
+def verify_469497ad(I):
     x1 = numcolors(I)
     x2 = decrement(x1)
     x3 = upscale(I, x2)
@@ -3122,7 +3122,7 @@ def solve_469497ad(I):
     return O
 
 
-def solve_46f33fce(I):
+def verify_46f33fce(I):
     x1 = rot180(I)
     x2 = downscale(x1, TWO)
     x3 = rot180(x2)
@@ -3130,7 +3130,7 @@ def solve_46f33fce(I):
     return O
 
 
-def solve_47c1f68c(I):
+def verify_47c1f68c(I):
     x1 = frontiers(I)
     x2 = merge(x1)
     x3 = color(x2)
@@ -3171,7 +3171,7 @@ def solve_47c1f68c(I):
     return O
 
 
-def solve_484b58aa(I):
+def verify_484b58aa(I):
     x1 = palette(I)
     x2 = objects(I, T, F, F)
     x3 = lbind(colorfilter, x2)
@@ -3205,7 +3205,7 @@ def solve_484b58aa(I):
     return O
 
 
-def solve_48d8fb45(I):
+def verify_48d8fb45(I):
     x1 = objects(I, F, T, T)
     x2 = argmax(x1, numcolors)
     x3 = mostcolor(x2)
@@ -3219,7 +3219,7 @@ def solve_48d8fb45(I):
     return O
 
 
-def solve_4938f0c2(I):
+def verify_4938f0c2(I):
     x1 = fgpartition(I)
     x2 = matcher(size, FOUR)
     x3 = fork(both, square, x2)
@@ -3242,7 +3242,7 @@ def solve_4938f0c2(I):
     return O
 
 
-def solve_496994bd(I):
+def verify_496994bd(I):
     x1 = mostcolor(I)
     x2 = vsplit(I, TWO)
     x3 = apply(numcolors, x2)
@@ -3257,7 +3257,7 @@ def solve_496994bd(I):
     return O
 
 
-def solve_49d1d64f(I):
+def verify_49d1d64f(I):
     x1 = shape(I)
     x2 = increment(x1)
     x3 = increment(x2)
@@ -3276,7 +3276,7 @@ def solve_49d1d64f(I):
     return O
 
 
-def solve_4be741c5(I):
+def verify_4be741c5(I):
     x1 = first(I)
     x2 = dedupe(x1)
     x3 = size(x2)
@@ -3292,13 +3292,13 @@ def solve_4be741c5(I):
     return O
 
 
-def solve_4c4377d9(I):
+def verify_4c4377d9(I):
     x1 = hmirror(I)
     O = vconcat(x1, I)
     return O
 
 
-def solve_4c5c2cf0(I):
+def verify_4c5c2cf0(I):
     x1 = fgpartition(I)
     x2 = compose(dneighbors, center)
     x3 = fork(difference, backdrop, x2)
@@ -3324,7 +3324,7 @@ def solve_4c5c2cf0(I):
     return O
 
 
-def solve_50846271(I):
+def verify_50846271(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = interval(TWO, FIVE, ONE)
@@ -3420,7 +3420,7 @@ def solve_50846271(I):
     return O
 
 
-def solve_508bd3b6(I):
+def verify_508bd3b6(I):
     x1 = objects(I, T, F, F)
     x2 = palette(I)
     x3 = compose(maximum, shape)
@@ -3479,7 +3479,7 @@ def solve_508bd3b6(I):
     return O
 
 
-def solve_50cb2852(I):
+def verify_50cb2852(I):
     x1 = objects(I, T, F, T)
     x2 = compose(backdrop, inbox)
     x3 = mapply(x2, x1)
@@ -3487,7 +3487,7 @@ def solve_50cb2852(I):
     return O
 
 
-def solve_5117e062(I):
+def verify_5117e062(I):
     x1 = objects(I, F, T, T)
     x2 = argmax(x1, numcolors)
     x3 = mostcolor(x2)
@@ -3499,7 +3499,7 @@ def solve_5117e062(I):
     return O
 
 
-def solve_5168d44c(I):
+def verify_5168d44c(I):
     x1 = partition(I)
     x2 = fork(multiply, height, width)
     x3 = valmax(x1, x2)
@@ -3568,7 +3568,7 @@ def solve_5168d44c(I):
     return O
 
 
-def solve_539a4f51(I):
+def verify_539a4f51(I):
     x1 = astuple(identity, cmirror)
     x2 = astuple(hmirror, vmirror)
     x3 = combine(x1, x2)
@@ -3612,7 +3612,7 @@ def solve_539a4f51(I):
     return O
 
 
-def solve_53b68214(I):
+def verify_53b68214(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = mostcolor(I)
@@ -3653,7 +3653,7 @@ def solve_53b68214(I):
     return O
 
 
-def solve_543a7ed5(I):
+def verify_543a7ed5(I):
     x1 = objects(I, T, F, T)
     x2 = mapply(outbox, x1)
     x3 = fill(I, THREE, x2)
@@ -3662,7 +3662,7 @@ def solve_543a7ed5(I):
     return O
 
 
-def solve_54d82841(I):
+def verify_54d82841(I):
     x1 = objects(I, T, F, T)
     x2 = mapply(delta, x1)
     x3 = first(x1)
@@ -3689,7 +3689,7 @@ def solve_54d82841(I):
     return O
 
 
-def solve_54d9e175(I):
+def verify_54d9e175(I):
     x1 = frontiers(I)
     x2 = merge(x1)
     x3 = leastcolor(x2)
@@ -3708,7 +3708,7 @@ def solve_54d9e175(I):
     return O
 
 
-def solve_5521c0d9(I):
+def verify_5521c0d9(I):
     x1 = asindices(I)
     x2 = box(x1)
     x3 = toobject(x2, I)
@@ -3746,14 +3746,14 @@ def solve_5521c0d9(I):
     return O
 
 
-def solve_5582e5ca(I):
+def verify_5582e5ca(I):
     x1 = mostcolor(I)
     x2 = shape(I)
     O = canvas(x1, x2)
     return O
 
 
-def solve_5614dbcf(I):
+def verify_5614dbcf(I):
     x1 = canvas(ZERO, THREE_BY_THREE)
     x2 = asindices(x1)
     x3 = shape(I)
@@ -3780,7 +3780,7 @@ def solve_5614dbcf(I):
     return O
 
 
-def solve_56dc2b01(I):
+def verify_56dc2b01(I):
     x1 = ofcolor(I, TWO)
     x2 = hline(x1)
     x3 = branch(x2, dmirror, identity)
@@ -3812,7 +3812,7 @@ def solve_56dc2b01(I):
     return O
 
 
-def solve_56ff96f3(I):
+def verify_56ff96f3(I):
     x1 = fgpartition(I)
     x2 = fork(recolor, color, backdrop)
     x3 = mapply(x2, x1)
@@ -3820,7 +3820,7 @@ def solve_56ff96f3(I):
     return O
 
 
-def solve_57aa92db(I):
+def verify_57aa92db(I):
     x1 = objects(I, F, T, T)
     x2 = palette(I)
     x3 = lbind(sfilter, x1)
@@ -3857,7 +3857,7 @@ def solve_57aa92db(I):
     return O
 
 
-def solve_5ad4f10b(I):
+def verify_5ad4f10b(I):
     x1 = asindices(I)
     x2 = box(x1)
     x3 = toobject(x2, I)
@@ -3893,14 +3893,14 @@ def solve_5ad4f10b(I):
     return O
 
 
-def solve_5bd6f4ac(I):
+def verify_5bd6f4ac(I):
     x1 = rot270(I)
     x2 = crop(x1, ORIGIN, THREE_BY_THREE)
     O = rot90(x2)
     return O
 
 
-def solve_5c0a986e(I):
+def verify_5c0a986e(I):
     x1 = objects(I, T, F, T)
     x2 = colorfilter(x1, TWO)
     x3 = colorfilter(x1, ONE)
@@ -3917,7 +3917,7 @@ def solve_5c0a986e(I):
     return O
 
 
-def solve_5c2c9af4(I):
+def verify_5c2c9af4(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = height(x2)
@@ -3946,7 +3946,7 @@ def solve_5c2c9af4(I):
     return O
 
 
-def solve_5daaa586(I):
+def verify_5daaa586(I):
     x1 = mostcolor(I)
     x2 = objects(I, T, F, F)
     x3 = colorfilter(x2, x1)
@@ -3979,19 +3979,19 @@ def solve_5daaa586(I):
     return O
 
 
-def solve_60b61512(I):
+def verify_60b61512(I):
     x1 = objects(I, T, T, T)
     x2 = mapply(delta, x1)
     O = fill(I, SEVEN, x2)
     return O
 
 
-def solve_6150a2bd(I):
+def verify_6150a2bd(I):
     O = rot180(I)
     return O
 
 
-def solve_623ea044(I):
+def verify_623ea044(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = rbind(shoot, UNITY)
@@ -4006,7 +4006,7 @@ def solve_623ea044(I):
     return O
 
 
-def solve_62c24649(I):
+def verify_62c24649(I):
     x1 = vmirror(I)
     x2 = hconcat(I, x1)
     x3 = hmirror(x2)
@@ -4014,7 +4014,7 @@ def solve_62c24649(I):
     return O
 
 
-def solve_63613498(I):
+def verify_63613498(I):
     x1 = objects(I, T, F, T)
     x2 = mostcolor(I)
     x3 = fork(add, height, width)
@@ -4044,7 +4044,7 @@ def solve_63613498(I):
     return O
 
 
-def solve_6430c8c4(I):
+def verify_6430c8c4(I):
     x1 = frontiers(I)
     x2 = sfilter(x1, hline)
     x3 = size(x2)
@@ -4066,7 +4066,7 @@ def solve_6430c8c4(I):
     return O
 
 
-def solve_6455b5f5(I):
+def verify_6455b5f5(I):
     x1 = objects(I, T, F, F)
     x2 = asindices(I)
     x3 = corners(x2)
@@ -4084,7 +4084,7 @@ def solve_6455b5f5(I):
     return O
 
 
-def solve_662c240a(I):
+def verify_662c240a(I):
     x1 = portrait(I)
     x2 = branch(x1, vsplit, hsplit)
     x3 = shape(I)
@@ -4098,7 +4098,7 @@ def solve_662c240a(I):
     return O
 
 
-def solve_67385a82(I):
+def verify_67385a82(I):
     x1 = objects(I, T, F, F)
     x2 = palette(I)
     x3 = other(x2, ZERO)
@@ -4110,7 +4110,7 @@ def solve_67385a82(I):
     return O
 
 
-def solve_673ef223(I):
+def verify_673ef223(I):
     x1 = objects(I, T, F, T)
     x2 = merge(x1)
     x3 = palette(x2)
@@ -4167,7 +4167,7 @@ def solve_673ef223(I):
     return O
 
 
-def solve_6773b310(I):
+def verify_6773b310(I):
     x1 = frontiers(I)
     x2 = merge(x1)
     x3 = color(x2)
@@ -4202,12 +4202,12 @@ def solve_6773b310(I):
     return O
 
 
-def solve_67a3c6ac(I):
+def verify_67a3c6ac(I):
     O = vmirror(I)
     return O
 
 
-def solve_67a423a3(I):
+def verify_67a423a3(I):
     x1 = mostcolor(I)
     x2 = palette(I)
     x3 = remove(x1, x2)
@@ -4224,7 +4224,7 @@ def solve_67a423a3(I):
     return O
 
 
-def solve_67e8384a(I):
+def verify_67e8384a(I):
     x1 = vmirror(I)
     x2 = hconcat(I, x1)
     x3 = hmirror(x2)
@@ -4232,7 +4232,7 @@ def solve_67e8384a(I):
     return O
 
 
-def solve_681b3aeb(I):
+def verify_681b3aeb(I):
     x1 = objects(I, T, T, T)
     x2 = totuple(x1)
     x3 = first(x2)
@@ -4278,7 +4278,7 @@ def solve_681b3aeb(I):
     return O
 
 
-def solve_6855a6e4(I):
+def verify_6855a6e4(I):
     x1 = partition(I)
     x2 = fork(difference, toindices, box)
     x3 = compose(size, x2)
@@ -4334,12 +4334,12 @@ def solve_6855a6e4(I):
     return O
 
 
-def solve_68b16354(I):
+def verify_68b16354(I):
     O = hmirror(I)
     return O
 
 
-def solve_694f12f3(I):
+def verify_694f12f3(I):
     x1 = objects(I, T, F, F)
     x2 = fork(multiply, height, width)
     x3 = fork(equality, size, x2)
@@ -4354,7 +4354,7 @@ def solve_694f12f3(I):
     return O
 
 
-def solve_6a1e5592(I):
+def verify_6a1e5592(I):
     x1 = astuple(identity, dmirror)
     x2 = astuple(cmirror, hmirror)
     x3 = combine(x1, x2)
@@ -4444,7 +4444,7 @@ def solve_6a1e5592(I):
     return O
 
 
-def solve_6aa20dc0(I):
+def verify_6aa20dc0(I):
     x1 = objects(I, F, T, T)
     x2 = mostcolor(I)
     x3 = valmax(x1, numcolors)
@@ -4499,7 +4499,7 @@ def solve_6aa20dc0(I):
     return O
 
 
-def solve_6b9890af(I):
+def verify_6b9890af(I):
     x1 = objects(I, T, T, T)
     x2 = fork(equality, toindices, box)
     x3 = sfilter(x1, x2)
@@ -4526,7 +4526,7 @@ def solve_6b9890af(I):
     return O
 
 
-def solve_6c434453(I):
+def verify_6c434453(I):
     x1 = objects(I, T, F, T)
     x2 = rbind(greater, TWO)
     x3 = chain(x2, minimum, shape)
@@ -4545,7 +4545,7 @@ def solve_6c434453(I):
     return O
 
 
-def solve_6cdd2623(I):
+def verify_6cdd2623(I):
     x1 = asindices(I)
     x2 = box(x1)
     x3 = rbind(difference, x2)
@@ -4568,7 +4568,7 @@ def solve_6cdd2623(I):
     return O
 
 
-def solve_6cf79266(I):
+def verify_6cf79266(I):
     x1 = canvas(ZERO, THREE_BY_THREE)
     x2 = asobject(x1)
     x3 = occurrences(I, x2)
@@ -4578,7 +4578,7 @@ def solve_6cf79266(I):
     return O
 
 
-def solve_6d0160f0(I):
+def verify_6d0160f0(I):
     x1 = frontiers(I)
     x2 = merge(x1)
     x3 = mostcolor(x2)
@@ -4621,13 +4621,13 @@ def solve_6d0160f0(I):
     return O
 
 
-def solve_6d0aefbc(I):
+def verify_6d0aefbc(I):
     x1 = vmirror(I)
     O = hconcat(I, x1)
     return O
 
 
-def solve_6d58a25d(I):
+def verify_6d58a25d(I):
     x1 = astuple(ONE, THREE)
     x2 = astuple(TWO, FOUR)
     x3 = initset(x2)
@@ -4691,7 +4691,7 @@ def solve_6d58a25d(I):
     return O
 
 
-def solve_6d75e8bb(I):
+def verify_6d75e8bb(I):
     x1 = partition(I)
     x2 = argmin(x1, size)
     x3 = delta(x2)
@@ -4699,7 +4699,7 @@ def solve_6d75e8bb(I):
     return O
 
 
-def solve_6e02f1e3(I):
+def verify_6e02f1e3(I):
     x1 = numcolors(I)
     x2 = equality(x1, THREE)
     x3 = height(I)
@@ -4720,7 +4720,7 @@ def solve_6e02f1e3(I):
     return O
 
 
-def solve_6e19193c(I):
+def verify_6e19193c(I):
     x1 = objects(I, T, F, T)
     x2 = rbind(shoot, UNITY)
     x3 = rbind(add, UNITY)
@@ -4761,7 +4761,7 @@ def solve_6e19193c(I):
     return O
 
 
-def solve_6e82a1ae(I):
+def verify_6e82a1ae(I):
     x1 = objects(I, T, F, T)
     x2 = matcher(size, TWO)
     x3 = mfilter(x1, x2)
@@ -4775,7 +4775,7 @@ def solve_6e82a1ae(I):
     return O
 
 
-def solve_6ecd11f4(I):
+def verify_6ecd11f4(I):
     x1 = objects(I, F, T, T)
     x2 = argmax(x1, numcolors)
     x3 = argmin(x1, numcolors)
@@ -4822,20 +4822,20 @@ def solve_6ecd11f4(I):
     return O
 
 
-def solve_6f8cd79b(I):
+def verify_6f8cd79b(I):
     x1 = asindices(I)
     x2 = box(x1)
     O = fill(I, EIGHT, x2)
     return O
 
 
-def solve_6fa7a44f(I):
+def verify_6fa7a44f(I):
     x1 = hmirror(I)
     O = vconcat(I, x1)
     return O
 
 
-def solve_72322fa7(I):
+def verify_72322fa7(I):
     x1 = objects(I, F, T, T)
     x2 = matcher(numcolors, TWO)
     x3 = sfilter(x1, x2)
@@ -4866,7 +4866,7 @@ def solve_72322fa7(I):
     return O
 
 
-def solve_72ca375d(I):
+def verify_72ca375d(I):
     x1 = objects(I, T, T, T)
     x2 = fork(equality, identity, vmirror)
     x3 = extract(x1, x2)
@@ -4874,7 +4874,7 @@ def solve_72ca375d(I):
     return O
 
 
-def solve_73251a56(I):
+def verify_73251a56(I):
     x1 = palette(I)
     x2 = asindices(I)
     x3 = urcorner(x2)
@@ -4936,7 +4936,7 @@ def solve_73251a56(I):
     return O
 
 
-def solve_7447852a(I):
+def verify_7447852a(I):
     x1 = index(I, ORIGIN)
     x2 = shape(I)
     x3 = canvas(x1, x2)
@@ -4957,13 +4957,13 @@ def solve_7447852a(I):
     return O
 
 
-def solve_7468f01a(I):
+def verify_7468f01a(I):
     x1 = compress(I)
     O = vmirror(x1)
     return O
 
 
-def solve_746b3537(I):
+def verify_746b3537(I):
     x1 = first(I)
     x2 = dedupe(x1)
     x3 = size(x2)
@@ -4978,12 +4978,12 @@ def solve_746b3537(I):
     return O
 
 
-def solve_74dd1130(I):
+def verify_74dd1130(I):
     O = dmirror(I)
     return O
 
 
-def solve_75b8110e(I):
+def verify_75b8110e(I):
     x1 = tophalf(I)
     x2 = lefthalf(x1)
     x3 = tophalf(I)
@@ -5017,7 +5017,7 @@ def solve_75b8110e(I):
     return O
 
 
-def solve_760b3cac(I):
+def verify_760b3cac(I):
     x1 = fgpartition(I)
     x2 = matcher(shape, THREE_BY_THREE)
     x3 = matcher(size, FIVE)
@@ -5070,7 +5070,7 @@ def solve_760b3cac(I):
     return O
 
 
-def solve_776ffc46(I):
+def verify_776ffc46(I):
     x1 = objects(I, T, F, T)
     x2 = fork(equality, toindices, box)
     x3 = sfilter(x1, x2)
@@ -5093,7 +5093,7 @@ def solve_776ffc46(I):
     return O
 
 
-def solve_77fdfe62(I):
+def verify_77fdfe62(I):
     x1 = trim(I)
     x2 = trim(x1)
     x3 = tophalf(x2)
@@ -5135,7 +5135,7 @@ def solve_77fdfe62(I):
     return O
 
 
-def solve_780d0b14(I):
+def verify_780d0b14(I):
     x1 = frontiers(I)
     x2 = merge(x1)
     x3 = color(x2)
@@ -5156,7 +5156,7 @@ def solve_780d0b14(I):
     return O
 
 
-def solve_7837ac64(I):
+def verify_7837ac64(I):
     x1 = objects(I, T, F, F)
     x2 = fork(equality, toindices, backdrop)
     x3 = sfilter(x1, x2)
@@ -5198,7 +5198,7 @@ def solve_7837ac64(I):
     return O
 
 
-def solve_794b24be(I):
+def verify_794b24be(I):
     x1 = palette(I)
     x2 = remove(ONE, x1)
     x3 = lbind(colorcount, I)
@@ -5216,7 +5216,7 @@ def solve_794b24be(I):
     return O
 
 
-def solve_7b6016b9(I):
+def verify_7b6016b9(I):
     x1 = objects(I, T, F, F)
     x2 = asindices(I)
     x3 = box(x2)
@@ -5231,7 +5231,7 @@ def solve_7b6016b9(I):
     return O
 
 
-def solve_7b7f7511(I):
+def verify_7b7f7511(I):
     x1 = lefthalf(I)
     x2 = righthalf(I)
     x3 = equality(x1, x2)
@@ -5240,7 +5240,7 @@ def solve_7b7f7511(I):
     return O
 
 
-def solve_7c008303(I):
+def verify_7c008303(I):
     x1 = frontiers(I)
     x2 = merge(x1)
     x3 = color(x2)
@@ -5273,7 +5273,7 @@ def solve_7c008303(I):
     return O
 
 
-def solve_7ddcd7ec(I):
+def verify_7ddcd7ec(I):
     x1 = objects(I, F, F, T)
     x2 = argmax(x1, size)
     x3 = remove(x2, x1)
@@ -5285,7 +5285,7 @@ def solve_7ddcd7ec(I):
     return O
 
 
-def solve_7df24a62(I):
+def verify_7df24a62(I):
     x1 = partition(I)
     x2 = compose(maximum, shape)
     x3 = argmin(x1, x2)
@@ -5336,7 +5336,7 @@ def solve_7df24a62(I):
     return O
 
 
-def solve_7e0986d6(I):
+def verify_7e0986d6(I):
     x1 = mostcolor(I)
     x2 = objects(I, T, F, T)
     x3 = lbind(greater, THREE)
@@ -5351,7 +5351,7 @@ def solve_7e0986d6(I):
     return O
 
 
-def solve_7f4411dc(I):
+def verify_7f4411dc(I):
     x1 = objects(I, T, F, F)
     x2 = totuple(x1)
     x3 = apply(color, x2)
@@ -5370,7 +5370,7 @@ def solve_7f4411dc(I):
     return O
 
 
-def solve_7fe24cdd(I):
+def verify_7fe24cdd(I):
     x1 = rot90(I)
     x2 = rot180(I)
     x3 = rot270(I)
@@ -5380,7 +5380,7 @@ def solve_7fe24cdd(I):
     return O
 
 
-def solve_80af3007(I):
+def verify_80af3007(I):
     x1 = partition(I)
     x2 = fork(multiply, height, width)
     x3 = argmin(x1, x2)
@@ -5434,7 +5434,7 @@ def solve_80af3007(I):
     return O
 
 
-def solve_810b9b61(I):
+def verify_810b9b61(I):
     x1 = objects(I, T, F, T)
     x2 = rbind(greater, TWO)
     x3 = chain(x2, minimum, shape)
@@ -5445,7 +5445,7 @@ def solve_810b9b61(I):
     return O
 
 
-def solve_82819916(I):
+def verify_82819916(I):
     x1 = frontiers(I)
     x2 = sfilter(x1, hline)
     x3 = size(x2)
@@ -5497,7 +5497,7 @@ def solve_82819916(I):
     return O
 
 
-def solve_83302e8f(I):
+def verify_83302e8f(I):
     x1 = index(I, ORIGIN)
     x2 = objects(I, T, F, F)
     x3 = fork(multiply, height, width)
@@ -5513,7 +5513,7 @@ def solve_83302e8f(I):
     return O
 
 
-def solve_834ec97d(I):
+def verify_834ec97d(I):
     x1 = partition(I)
     x2 = argmin(x1, size)
     x3 = cover(I, x2)
@@ -5534,7 +5534,7 @@ def solve_834ec97d(I):
     return O
 
 
-def solve_8403a5d5(I):
+def verify_8403a5d5(I):
     x1 = fgpartition(I)
     x2 = argmin(x1, size)
     x3 = color(x2)
@@ -5560,7 +5560,7 @@ def solve_8403a5d5(I):
     return O
 
 
-def solve_846bdb03(I):
+def verify_846bdb03(I):
     x1 = partition(I)
     x2 = fork(equality, corners, toindices)
     x3 = extract(x1, x2)
@@ -5603,7 +5603,7 @@ def solve_846bdb03(I):
     return O
 
 
-def solve_855e0971(I):
+def verify_855e0971(I):
     x1 = lbind(greater, THREE)
     x2 = chain(x1, size, dedupe)
     x3 = apply(x2, I)
@@ -5638,7 +5638,7 @@ def solve_855e0971(I):
     return O
 
 
-def solve_85c4e7cd(I):
+def verify_85c4e7cd(I):
     x1 = asindices(I)
     x2 = box(x1)
     x3 = shape(I)
@@ -5665,7 +5665,7 @@ def solve_85c4e7cd(I):
     return O
 
 
-def solve_868de0fa(I):
+def verify_868de0fa(I):
     x1 = objects(I, T, F, F)
     x2 = sfilter(x1, square)
     x3 = compose(even, height)
@@ -5678,7 +5678,7 @@ def solve_868de0fa(I):
     return O
 
 
-def solve_8731374e(I):
+def verify_8731374e(I):
     x1 = objects(I, T, F, F)
     x2 = argmax(x1, size)
     x3 = color(x2)
@@ -5711,7 +5711,7 @@ def solve_8731374e(I):
     return O
 
 
-def solve_88a10436(I):
+def verify_88a10436(I):
     x1 = objects(I, F, F, T)
     x2 = argmax(x1, size)
     x3 = normalize(x2)
@@ -5727,7 +5727,7 @@ def solve_88a10436(I):
     return O
 
 
-def solve_88a62173(I):
+def verify_88a62173(I):
     x1 = lefthalf(I)
     x2 = righthalf(I)
     x3 = tophalf(x1)
@@ -5741,7 +5741,7 @@ def solve_88a62173(I):
     return O
 
 
-def solve_890034e9(I):
+def verify_890034e9(I):
     x1 = rbind(greater, TWO)
     x2 = chain(x1, minimum, shape)
     x3 = objects(I, T, F, F)
@@ -5763,7 +5763,7 @@ def solve_890034e9(I):
     return O
 
 
-def solve_8a004b2b(I):
+def verify_8a004b2b(I):
     x1 = partition(I)
     x2 = fork(equality, toindices, corners)
     x3 = sfilter(x1, x2)
@@ -5823,13 +5823,13 @@ def solve_8a004b2b(I):
     return O
 
 
-def solve_8be77c9e(I):
+def verify_8be77c9e(I):
     x1 = hmirror(I)
     O = vconcat(I, x1)
     return O
 
 
-def solve_8d5021e8(I):
+def verify_8d5021e8(I):
     x1 = vmirror(I)
     x2 = hconcat(x1, I)
     x3 = hmirror(x2)
@@ -5839,7 +5839,7 @@ def solve_8d5021e8(I):
     return O
 
 
-def solve_8d510a79(I):
+def verify_8d510a79(I):
     x1 = frontiers(I)
     x2 = totuple(x1)
     x3 = apply(color, x2)
@@ -5871,7 +5871,7 @@ def solve_8d510a79(I):
     return O
 
 
-def solve_8e1813be(I):
+def verify_8e1813be(I):
     x1 = partition(I)
     x2 = matcher(height, ONE)
     x3 = matcher(width, ONE)
@@ -5894,7 +5894,7 @@ def solve_8e1813be(I):
     return O
 
 
-def solve_8e5a5113(I):
+def verify_8e5a5113(I):
     x1 = portrait(I)
     x2 = branch(x1, identity, rot90)
     x3 = branch(x1, identity, rot270)
@@ -5940,7 +5940,7 @@ def solve_8e5a5113(I):
     return O
 
 
-def solve_8eb1be9a(I):
+def verify_8eb1be9a(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = height(x2)
@@ -5955,7 +5955,7 @@ def solve_8eb1be9a(I):
     return O
 
 
-def solve_8efcae92(I):
+def verify_8efcae92(I):
     x1 = objects(I, T, F, F)
     x2 = fork(multiply, height, width)
     x3 = argmax(x1, x2)
@@ -5983,7 +5983,7 @@ def solve_8efcae92(I):
     return O
 
 
-def solve_8f2ea7aa(I):
+def verify_8f2ea7aa(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = normalize(x2)
@@ -6001,7 +6001,7 @@ def solve_8f2ea7aa(I):
     return O
 
 
-def solve_90c28cc7(I):
+def verify_90c28cc7(I):
     x1 = matcher(identity, ZERO)
     x2 = compose(flip, x1)
     x3 = rbind(sfilter, x2)
@@ -6017,7 +6017,7 @@ def solve_90c28cc7(I):
     return O
 
 
-def solve_90f3ed37(I):
+def verify_90f3ed37(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = apply(first, x2)
@@ -6095,7 +6095,7 @@ def solve_90f3ed37(I):
     return O
 
 
-def solve_913fb3ed(I):
+def verify_913fb3ed(I):
     x1 = lbind(ofcolor, I)
     x2 = lbind(mapply, neighbors)
     x3 = chain(x2, x1, last)
@@ -6111,7 +6111,7 @@ def solve_913fb3ed(I):
     return O
 
 
-def solve_91413438(I):
+def verify_91413438(I):
     x1 = palette(I)
     x2 = other(x1, ZERO)
     x3 = colorcount(I, x2)
@@ -6132,7 +6132,7 @@ def solve_91413438(I):
     return O
 
 
-def solve_91714a58(I):
+def verify_91714a58(I):
     x1 = shape(I)
     x2 = asindices(I)
     x3 = objects(I, T, F, T)
@@ -6163,12 +6163,12 @@ def solve_91714a58(I):
     return O
 
 
-def solve_9172f3a0(I):
+def verify_9172f3a0(I):
     O = upscale(I, THREE)
     return O
 
 
-def solve_928ad970(I):
+def verify_928ad970(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = leastcolor(I)
@@ -6181,7 +6181,7 @@ def solve_928ad970(I):
     return O
 
 
-def solve_93b581b8(I):
+def verify_93b581b8(I):
     x1 = objects(I, F, F, T)
     x2 = apply(toindices, x1)
     x3 = lbind(index, I)
@@ -6208,7 +6208,7 @@ def solve_93b581b8(I):
     return O
 
 
-def solve_941d9a10(I):
+def verify_941d9a10(I):
     x1 = asindices(I)
     x2 = corners(x1)
     x3 = toobject(x2, I)
@@ -6242,7 +6242,7 @@ def solve_941d9a10(I):
     return O
 
 
-def solve_94f9d214(I):
+def verify_94f9d214(I):
     x1 = astuple(vsplit, hsplit)
     x2 = rbind(rbind, TWO)
     x3 = rbind(rapply, I)
@@ -6269,7 +6269,7 @@ def solve_94f9d214(I):
     return O
 
 
-def solve_952a094c(I):
+def verify_952a094c(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = inbox(x2)
@@ -6301,7 +6301,7 @@ def solve_952a094c(I):
     return O
 
 
-def solve_9565186b(I):
+def verify_9565186b(I):
     x1 = shape(I)
     x2 = partition(I)
     x3 = argmax(x2, size)
@@ -6310,7 +6310,7 @@ def solve_9565186b(I):
     return O
 
 
-def solve_95990924(I):
+def verify_95990924(I):
     x1 = objects(I, T, F, T)
     x2 = apply(ulcorner, x1)
     x3 = apply(urcorner, x1)
@@ -6327,7 +6327,7 @@ def solve_95990924(I):
     return O
 
 
-def solve_963e52fc(I):
+def verify_963e52fc(I):
     x1 = width(I)
     x2 = asobject(I)
     x3 = hperiod(x2)
@@ -6347,7 +6347,7 @@ def solve_963e52fc(I):
     return O
 
 
-def solve_97999447(I):
+def verify_97999447(I):
     x1 = mostcolor(I)
     x2 = asobject(I)
     x3 = matcher(first, x1)
@@ -6371,7 +6371,7 @@ def solve_97999447(I):
     return O
 
 
-def solve_97a05b5b(I):
+def verify_97a05b5b(I):
     x1 = objects(I, F, F, T)
     x2 = fork(multiply, height, width)
     x3 = fork(equality, size, x2)
@@ -6426,7 +6426,7 @@ def solve_97a05b5b(I):
     return O
 
 
-def solve_98cf29f8(I):
+def verify_98cf29f8(I):
     x1 = asindices(I)
     x2 = box(x1)
     x3 = toobject(x2, I)
@@ -6469,7 +6469,7 @@ def solve_98cf29f8(I):
     return O
 
 
-def solve_995c5fa3(I):
+def verify_995c5fa3(I):
     x1 = width(I)
     x2 = increment(x1)
     x3 = divide(x2, FIVE)
@@ -6512,7 +6512,7 @@ def solve_995c5fa3(I):
     return O
 
 
-def solve_99b1bc43(I):
+def verify_99b1bc43(I):
     x1 = frontiers(I)
     x2 = sfilter(x1, vline)
     x3 = size(x2)
@@ -6536,7 +6536,7 @@ def solve_99b1bc43(I):
     return O
 
 
-def solve_99fa7670(I):
+def verify_99fa7670(I):
     x1 = shape(I)
     x2 = objects(I, T, F, T)
     x3 = rbind(shoot, RIGHT)
@@ -6565,7 +6565,7 @@ def solve_99fa7670(I):
     return O
 
 
-def solve_9aec4887(I):
+def verify_9aec4887(I):
     x1 = objects(I, T, F, F)
     x2 = fork(multiply, height, width)
     x3 = fork(equality, size, x2)
@@ -6603,7 +6603,7 @@ def solve_9aec4887(I):
     return O
 
 
-def solve_9af7a82c(I):
+def verify_9af7a82c(I):
     x1 = partition(I)
     x2 = order(x1, size)
     x3 = valmax(x1, size)
@@ -6622,7 +6622,7 @@ def solve_9af7a82c(I):
     return O
 
 
-def solve_9d9215db(I):
+def verify_9d9215db(I):
     x1 = hmirror(I)
     x2 = fgpartition(x1)
     x3 = merge(x2)
@@ -6674,7 +6674,7 @@ def solve_9d9215db(I):
     return O
 
 
-def solve_9dfd6313(I):
+def verify_9dfd6313(I):
     x1 = shape(I)
     x2 = decrement(x1)
     x3 = connect(ORIGIN, x2)
@@ -6722,7 +6722,7 @@ def solve_9dfd6313(I):
     return O
 
 
-def solve_9ecd008a(I):
+def verify_9ecd008a(I):
     x1 = ofcolor(I, ZERO)
     x2 = rbind(colorcount, ZERO)
     x3 = lbind(toobject, x1)
@@ -6735,7 +6735,7 @@ def solve_9ecd008a(I):
     return O
 
 
-def solve_9edfc990(I):
+def verify_9edfc990(I):
     x1 = objects(I, T, F, F)
     x2 = colorfilter(x1, ZERO)
     x3 = ofcolor(I, ONE)
@@ -6746,7 +6746,7 @@ def solve_9edfc990(I):
     return O
 
 
-def solve_9f236235(I):
+def verify_9f236235(I):
     x1 = frontiers(I)
     x2 = merge(x1)
     x3 = color(x2)
@@ -6767,7 +6767,7 @@ def solve_9f236235(I):
     return O
 
 
-def solve_a1570a43(I):
+def verify_a1570a43(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = fork(equality, toindices, corners)
@@ -6785,7 +6785,7 @@ def solve_a1570a43(I):
     return O
 
 
-def solve_a2fd1cf0(I):
+def verify_a2fd1cf0(I):
     x1 = ofcolor(I, TWO)
     x2 = ofcolor(I, THREE)
     x3 = uppermost(x1)
@@ -6809,7 +6809,7 @@ def solve_a2fd1cf0(I):
     return O
 
 
-def solve_a3325580(I):
+def verify_a3325580(I):
     x1 = objects(I, T, F, T)
     x2 = valmax(x1, size)
     x3 = sizefilter(x1, x2)
@@ -6823,7 +6823,7 @@ def solve_a3325580(I):
     return O
 
 
-def solve_a3df8b1e(I):
+def verify_a3df8b1e(I):
     x1 = portrait(I)
     x2 = branch(x1, identity, dmirror)
     x3 = x2(I)
@@ -6884,12 +6884,12 @@ def solve_a3df8b1e(I):
     return O
 
 
-def solve_a416b8f3(I):
+def verify_a416b8f3(I):
     O = hconcat(I, I)
     return O
 
 
-def solve_a48eeaf7(I):
+def verify_a48eeaf7(I):
     x1 = fgpartition(I)
     x2 = fork(equality, toindices, backdrop)
     x3 = sfilter(x1, x2)
@@ -6909,7 +6909,7 @@ def solve_a48eeaf7(I):
     return O
 
 
-def solve_a5313dff(I):
+def verify_a5313dff(I):
     x1 = objects(I, T, F, F)
     x2 = rbind(bordering, I)
     x3 = compose(flip, x2)
@@ -6926,7 +6926,7 @@ def solve_a5313dff(I):
     return O
 
 
-def solve_a5f85a15(I):
+def verify_a5f85a15(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = compose(increment, double)
@@ -6941,7 +6941,7 @@ def solve_a5f85a15(I):
     return O
 
 
-def solve_a61ba2ce(I):
+def verify_a61ba2ce(I):
     x1 = fgpartition(I)
     x2 = fork(contained, lrcorner, toindices)
     x3 = compose(flip, x2)
@@ -6986,7 +6986,7 @@ def solve_a61ba2ce(I):
     return O
 
 
-def solve_a61f2674(I):
+def verify_a61f2674(I):
     x1 = objects(I, T, F, T)
     x2 = argmax(x1, size)
     x3 = argmin(x1, size)
@@ -6997,7 +6997,7 @@ def solve_a61f2674(I):
     return O
 
 
-def solve_a64e4611(I):
+def verify_a64e4611(I):
     x1 = mostcolor(I)
     x2 = shape(I)
     x3 = add(TWO, x2)
@@ -7067,7 +7067,7 @@ def solve_a64e4611(I):
     return O
 
 
-def solve_a65b410d(I):
+def verify_a65b410d(I):
     x1 = astuple(identity, rot90)
     x2 = astuple(rot180, rot270)
     x3 = combine(x1, x2)
@@ -7114,7 +7114,7 @@ def solve_a65b410d(I):
     return O
 
 
-def solve_a68b268e(I):
+def verify_a68b268e(I):
     x1 = tophalf(I)
     x2 = lefthalf(x1)
     x3 = tophalf(I)
@@ -7149,7 +7149,7 @@ def solve_a68b268e(I):
     return O
 
 
-def solve_a699fb00(I):
+def verify_a699fb00(I):
     x1 = leastcolor(I)
     x2 = height(I)
     x3 = vsplit(I, x2)
@@ -7162,7 +7162,7 @@ def solve_a699fb00(I):
     return O
 
 
-def solve_a740d043(I):
+def verify_a740d043(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = subgrid(x2, I)
@@ -7171,7 +7171,7 @@ def solve_a740d043(I):
     return O
 
 
-def solve_a78176bb(I):
+def verify_a78176bb(I):
     x1 = mostcolor(I)
     x2 = objects(I, T, T, F)
     x3 = fork(connect, ulcorner, lrcorner)
@@ -7213,7 +7213,7 @@ def solve_a78176bb(I):
     return O
 
 
-def solve_a79310a0(I):
+def verify_a79310a0(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = mostcolor(I)
@@ -7223,7 +7223,7 @@ def solve_a79310a0(I):
     return O
 
 
-def solve_a85d4709(I):
+def verify_a85d4709(I):
     x1 = leastcolor(I)
     x2 = height(I)
     x3 = vsplit(I, x2)
@@ -7255,7 +7255,7 @@ def solve_a85d4709(I):
     return O
 
 
-def solve_a87f7484(I):
+def verify_a87f7484(I):
     x1 = height(I)
     x2 = halve(x1)
     x3 = increment(x2)
@@ -7306,7 +7306,7 @@ def solve_a87f7484(I):
     return O
 
 
-def solve_a8c38be5(I):
+def verify_a8c38be5(I):
     x1 = objects(I, T, F, F)
     x2 = mostcolor(I)
     x3 = palette(I)
@@ -7467,7 +7467,7 @@ def solve_a8c38be5(I):
     return O
 
 
-def solve_a8d7556c(I):
+def verify_a8d7556c(I):
     x1 = initset(ORIGIN)
     x2 = recolor(ZERO, x1)
     x3 = upscale(x2, TWO)
@@ -7478,7 +7478,7 @@ def solve_a8d7556c(I):
     return O
 
 
-def solve_a9f96cdd(I):
+def verify_a9f96cdd(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = shift(x2, NEG_UNITY)
@@ -7498,7 +7498,7 @@ def solve_a9f96cdd(I):
     return O
 
 
-def solve_aabf363d(I):
+def verify_aabf363d(I):
     x1 = fork(multiply, height, width)
     x2 = lbind(ofcolor, I)
     x3 = palette(I)
@@ -7513,7 +7513,7 @@ def solve_aabf363d(I):
     return O
 
 
-def solve_aba27056(I):
+def verify_aba27056(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = delta(x2)
@@ -7562,7 +7562,7 @@ def solve_aba27056(I):
     return O
 
 
-def solve_ac0a08a4(I):
+def verify_ac0a08a4(I):
     x1 = mostcolor(I)
     x2 = colorcount(I, x1)
     x3 = height(I)
@@ -7573,7 +7573,7 @@ def solve_ac0a08a4(I):
     return O
 
 
-def solve_ae3edfdc(I):
+def verify_ae3edfdc(I):
     x1 = ofcolor(I, ONE)
     x2 = center(x1)
     x3 = ofcolor(I, TWO)
@@ -7599,7 +7599,7 @@ def solve_ae3edfdc(I):
     return O
 
 
-def solve_ae4f1146(I):
+def verify_ae4f1146(I):
     x1 = asindices(I)
     x2 = box(x1)
     x3 = toobject(x2, I)
@@ -7611,7 +7611,7 @@ def solve_ae4f1146(I):
     return O
 
 
-def solve_aedd82e4(I):
+def verify_aedd82e4(I):
     x1 = shape(I)
     x2 = canvas(ZERO, x1)
     x3 = hconcat(I, x2)
@@ -7625,7 +7625,7 @@ def solve_aedd82e4(I):
     return O
 
 
-def solve_af902bf9(I):
+def verify_af902bf9(I):
     x1 = mostcolor(I)
     x2 = palette(I)
     x3 = remove(x1, x2)
@@ -7669,7 +7669,7 @@ def solve_af902bf9(I):
     return O
 
 
-def solve_b0c4d837(I):
+def verify_b0c4d837(I):
     x1 = partition(I)
     x2 = fork(multiply, height, width)
     x3 = argmax(x1, x2)
@@ -7717,7 +7717,7 @@ def solve_b0c4d837(I):
     return O
 
 
-def solve_b190f7f5(I):
+def verify_b190f7f5(I):
     x1 = lbind(contained, TWO)
     x2 = lbind(apply, numcolors)
     x3 = compose(x1, x2)
@@ -7765,12 +7765,12 @@ def solve_b190f7f5(I):
     return O
 
 
-def solve_b1948b0a(I):
+def verify_b1948b0a(I):
     O = replace(I, SIX, TWO)
     return O
 
 
-def solve_b230c067(I):
+def verify_b230c067(I):
     x1 = objects(I, T, T, T)
     x2 = lbind(sfilter, x1)
     x3 = lbind(matcher, normalize)
@@ -7784,7 +7784,7 @@ def solve_b230c067(I):
     return O
 
 
-def solve_b27ca6d3(I):
+def verify_b27ca6d3(I):
     x1 = objects(I, T, F, T)
     x2 = sizefilter(x1, TWO)
     x3 = mapply(outbox, x2)
@@ -7792,7 +7792,7 @@ def solve_b27ca6d3(I):
     return O
 
 
-def solve_b2862040(I):
+def verify_b2862040(I):
     x1 = objects(I, T, F, F)
     x2 = mostcolor(I)
     x3 = colorfilter(x1, x2)
@@ -7807,7 +7807,7 @@ def solve_b2862040(I):
     return O
 
 
-def solve_b527c5c6(I):
+def verify_b527c5c6(I):
     x1 = objects(I, F, F, T)
     x2 = lbind(matcher, first)
     x3 = compose(x2, leastcolor)
@@ -7836,7 +7836,7 @@ def solve_b527c5c6(I):
     return O
 
 
-def solve_b548a754(I):
+def verify_b548a754(I):
     x1 = partition(I)
     x2 = fork(equality, toindices, box)
     x3 = fork(multiply, height, width)
@@ -7860,7 +7860,7 @@ def solve_b548a754(I):
     return O
 
 
-def solve_b60334d2(I):
+def verify_b60334d2(I):
     x1 = leastcolor(I)
     x2 = mostcolor(I)
     x3 = ofcolor(I, x1)
@@ -7872,7 +7872,7 @@ def solve_b60334d2(I):
     return O
 
 
-def solve_b6afb2da(I):
+def verify_b6afb2da(I):
     x1 = objects(I, T, F, F)
     x2 = fork(equality, toindices, backdrop)
     x3 = compose(flip, x2)
@@ -7890,7 +7890,7 @@ def solve_b6afb2da(I):
     return O
 
 
-def solve_b7249182(I):
+def verify_b7249182(I):
     x1 = objects(I, T, F, T)
     x2 = merge(x1)
     x3 = portrait(x2)
@@ -7934,7 +7934,7 @@ def solve_b7249182(I):
     return O
 
 
-def solve_b775ac94(I):
+def verify_b775ac94(I):
     x1 = objects(I, F, T, T)
     x2 = neighbors(ORIGIN)
     x3 = lbind(extract, x2)
@@ -7984,7 +7984,7 @@ def solve_b775ac94(I):
     return O
 
 
-def solve_b782dc8a(I):
+def verify_b782dc8a(I):
     x1 = leastcolor(I)
     x2 = palette(I)
     x3 = remove(x1, x2)
@@ -8013,7 +8013,7 @@ def solve_b782dc8a(I):
     return O
 
 
-def solve_b8825c91(I):
+def verify_b8825c91(I):
     x1 = replace(I, FOUR, NEG_ONE)
     x2 = dmirror(x1)
     x3 = papply(pair, x1, x2)
@@ -8031,7 +8031,7 @@ def solve_b8825c91(I):
     return O
 
 
-def solve_b8cdaf2b(I):
+def verify_b8cdaf2b(I):
     x1 = leastcolor(I)
     x2 = astuple(dmirror, cmirror)
     x3 = astuple(hmirror, identity)
@@ -8056,14 +8056,14 @@ def solve_b8cdaf2b(I):
     return O
 
 
-def solve_b91ae062(I):
+def verify_b91ae062(I):
     x1 = numcolors(I)
     x2 = decrement(x1)
     O = upscale(I, x2)
     return O
 
 
-def solve_b94a9452(I):
+def verify_b94a9452(I):
     x1 = partition(I)
     x2 = fork(multiply, height, width)
     x3 = argmax(x1, x2)
@@ -8076,7 +8076,7 @@ def solve_b94a9452(I):
     return O
 
 
-def solve_b9b7f026(I):
+def verify_b9b7f026(I):
     x1 = fgpartition(I)
     x2 = fork(equality, toindices, backdrop)
     x3 = compose(flip, x2)
@@ -8086,7 +8086,7 @@ def solve_b9b7f026(I):
     return O
 
 
-def solve_ba26e723(I):
+def verify_ba26e723(I):
     x1 = asobject(I)
     x2 = matcher(first, ZERO)
     x3 = compose(flip, x2)
@@ -8102,7 +8102,7 @@ def solve_ba26e723(I):
     return O
 
 
-def solve_ba97ae07(I):
+def verify_ba97ae07(I):
     x1 = objects(I, T, F, T)
     x2 = totuple(x1)
     x3 = apply(color, x2)
@@ -8113,7 +8113,7 @@ def solve_ba97ae07(I):
     return O
 
 
-def solve_bb43febb(I):
+def verify_bb43febb(I):
     x1 = objects(I, T, F, F)
     x2 = fork(equality, toindices, backdrop)
     x3 = rbind(greater, ONE)
@@ -8126,7 +8126,7 @@ def solve_bb43febb(I):
     return O
 
 
-def solve_bbc9ae5d(I):
+def verify_bbc9ae5d(I):
     x1 = index(I, ORIGIN)
     x2 = width(I)
     x3 = halve(x2)
@@ -8141,7 +8141,7 @@ def solve_bbc9ae5d(I):
     return O
 
 
-def solve_bc1d5164(I):
+def verify_bc1d5164(I):
     x1 = height(I)
     x2 = halve(x1)
     x3 = increment(x2)
@@ -8183,7 +8183,7 @@ def solve_bc1d5164(I):
     return O
 
 
-def solve_bd4472b8(I):
+def verify_bd4472b8(I):
     x1 = compose(positive, size)
     x2 = rbind(sfilter, hline)
     x3 = chain(x1, x2, frontiers)
@@ -8224,7 +8224,7 @@ def solve_bd4472b8(I):
     return O
 
 
-def solve_bda2d7a6(I):
+def verify_bda2d7a6(I):
     x1 = objects(I, T, F, F)
     x2 = compose(maximum, shape)
     x3 = order(x1, x2)
@@ -8249,7 +8249,7 @@ def solve_bda2d7a6(I):
     return O
 
 
-def solve_bdad9b1f(I):
+def verify_bdad9b1f(I):
     x1 = objects(I, T, F, T)
     x2 = sfilter(x1, hline)
     x3 = sfilter(x1, vline)
@@ -8268,7 +8268,7 @@ def solve_bdad9b1f(I):
     return O
 
 
-def solve_be94b721(I):
+def verify_be94b721(I):
     x1 = objects(I, T, F, F)
     x2 = argmax(x1, size)
     x3 = color(x2)
@@ -8281,7 +8281,7 @@ def solve_be94b721(I):
     return O
 
 
-def solve_beb8660c(I):
+def verify_beb8660c(I):
     x1 = astuple(identity, rot90)
     x2 = astuple(rot180, rot270)
     x3 = combine(x1, x2)
@@ -8323,7 +8323,7 @@ def solve_beb8660c(I):
     return O
 
 
-def solve_c0f76784(I):
+def verify_c0f76784(I):
     x1 = objects(I, T, F, F)
     x2 = mostcolor(I)
     x3 = colorfilter(x1, x2)
@@ -8339,14 +8339,14 @@ def solve_c0f76784(I):
     return O
 
 
-def solve_c1d99e64(I):
+def verify_c1d99e64(I):
     x1 = frontiers(I)
     x2 = merge(x1)
     O = fill(I, TWO, x2)
     return O
 
 
-def solve_c3e719e8(I):
+def verify_c3e719e8(I):
     x1 = shape(I)
     x2 = multiply(x1, x1)
     x3 = canvas(ZERO, x2)
@@ -8361,7 +8361,7 @@ def solve_c3e719e8(I):
     return O
 
 
-def solve_c3f564a4(I):
+def verify_c3f564a4(I):
     x1 = height(I)
     x2 = vsplit(I, x1)
     x3 = apply(asobject, x2)
@@ -8406,7 +8406,7 @@ def solve_c3f564a4(I):
     return O
 
 
-def solve_c444b776(I):
+def verify_c444b776(I):
     x1 = frontiers(I)
     x2 = merge(x1)
     x3 = leastcolor(x2)
@@ -8423,12 +8423,12 @@ def solve_c444b776(I):
     return O
 
 
-def solve_c59eb873(I):
+def verify_c59eb873(I):
     O = upscale(I, TWO)
     return O
 
 
-def solve_c8cbb738(I):
+def verify_c8cbb738(I):
     x1 = fgpartition(I)
     x2 = valmax(x1, height)
     x3 = valmax(x1, width)
@@ -8466,12 +8466,12 @@ def solve_c8cbb738(I):
     return O
 
 
-def solve_c8f0f002(I):
+def verify_c8f0f002(I):
     O = replace(I, SEVEN, FIVE)
     return O
 
 
-def solve_c909285e(I):
+def verify_c909285e(I):
     x1 = partition(I)
     x2 = lbind(contained, ONE)
     x3 = chain(flip, x2, shape)
@@ -8484,13 +8484,13 @@ def solve_c909285e(I):
     return O
 
 
-def solve_c9e6f938(I):
+def verify_c9e6f938(I):
     x1 = vmirror(I)
     O = hconcat(I, x1)
     return O
 
 
-def solve_c9f8e694(I):
+def verify_c9f8e694(I):
     x1 = astuple(identity, dmirror)
     x2 = astuple(cmirror, vmirror)
     x3 = combine(x1, x2)
@@ -8512,7 +8512,7 @@ def solve_c9f8e694(I):
     return O
 
 
-def solve_caa06a1f(I):
+def verify_caa06a1f(I):
     x1 = asindices(I)
     x2 = box(x1)
     x3 = toobject(x2, I)
@@ -8572,7 +8572,7 @@ def solve_caa06a1f(I):
     return O
 
 
-def solve_cbded52d(I):
+def verify_cbded52d(I):
     x1 = frontiers(I)
     x2 = merge(x1)
     x3 = color(x2)
@@ -8631,7 +8631,7 @@ def solve_cbded52d(I):
     return O
 
 
-def solve_cce03e0d(I):
+def verify_cce03e0d(I):
     x1 = ofcolor(I, TWO)
     x2 = shape(I)
     x3 = multiply(x2, x2)
@@ -8645,7 +8645,7 @@ def solve_cce03e0d(I):
     return O
 
 
-def solve_cdecee7f(I):
+def verify_cdecee7f(I):
     x1 = asobject(I)
     x2 = mostcolor(I)
     x3 = matcher(first, x2)
@@ -8676,7 +8676,7 @@ def solve_cdecee7f(I):
     return O
 
 
-def solve_ce22a75a(I):
+def verify_ce22a75a(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = apply(initset, x2)
@@ -8686,7 +8686,7 @@ def solve_ce22a75a(I):
     return O
 
 
-def solve_ce4f8723(I):
+def verify_ce4f8723(I):
     x1 = frontiers(I)
     x2 = sfilter(x1, hline)
     x3 = size(x2)
@@ -8712,7 +8712,7 @@ def solve_ce4f8723(I):
     return O
 
 
-def solve_ce602527(I):
+def verify_ce602527(I):
     x1 = fgpartition(I)
     x2 = rbind(bordering, I)
     x3 = extract(x1, x2)
@@ -8748,7 +8748,7 @@ def solve_ce602527(I):
     return O
 
 
-def solve_ce9e57f2(I):
+def verify_ce9e57f2(I):
     x1 = objects(I, T, F, T)
     x2 = asindices(I)
     x3 = outbox(x2)
@@ -8769,7 +8769,7 @@ def solve_ce9e57f2(I):
     return O
 
 
-def solve_cf98881b(I):
+def verify_cf98881b(I):
     x1 = width(I)
     x2 = increment(x1)
     x3 = divide(x2, THREE)
@@ -8803,7 +8803,7 @@ def solve_cf98881b(I):
     return O
 
 
-def solve_d037b0a7(I):
+def verify_d037b0a7(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = rbind(shoot, DOWN)
@@ -8814,7 +8814,7 @@ def solve_d037b0a7(I):
     return O
 
 
-def solve_d06dbe63(I):
+def verify_d06dbe63(I):
     x1 = double(TEN)
     x2 = interval(ZERO, x1, ONE)
     x3 = connect(ORIGIN, DOWN)
@@ -8862,7 +8862,7 @@ def solve_d06dbe63(I):
     return O
 
 
-def solve_d07ae81c(I):
+def verify_d07ae81c(I):
     x1 = lbind(ofcolor, I)
     x2 = lbind(mapply, neighbors)
     x3 = compose(x2, x1)
@@ -8902,7 +8902,7 @@ def solve_d07ae81c(I):
     return O
 
 
-def solve_d0f5fe59(I):
+def verify_d0f5fe59(I):
     x1 = objects(I, T, F, T)
     x2 = size(x1)
     x3 = astuple(x2, x2)
@@ -8914,12 +8914,12 @@ def solve_d0f5fe59(I):
     return O
 
 
-def solve_d10ecb37(I):
+def verify_d10ecb37(I):
     O = crop(I, ORIGIN, TWO_BY_TWO)
     return O
 
 
-def solve_d13f3404(I):
+def verify_d13f3404(I):
     x1 = asobject(I)
     x2 = mostcolor(I)
     x3 = matcher(first, x2)
@@ -8938,7 +8938,7 @@ def solve_d13f3404(I):
     return O
 
 
-def solve_d22278a0(I):
+def verify_d22278a0(I):
     x1 = objects(I, T, F, T)
     x2 = totuple(x1)
     x3 = apply(color, x2)
@@ -8988,7 +8988,7 @@ def solve_d22278a0(I):
     return O
 
 
-def solve_d23f8c26(I):
+def verify_d23f8c26(I):
     x1 = mostcolor(I)
     x2 = matcher(first, x1)
     x3 = compose(flip, x2)
@@ -9004,7 +9004,7 @@ def solve_d23f8c26(I):
     return O
 
 
-def solve_d2abd087(I):
+def verify_d2abd087(I):
     x1 = objects(I, T, F, T)
     x2 = matcher(size, SIX)
     x3 = compose(flip, x2)
@@ -9015,7 +9015,7 @@ def solve_d2abd087(I):
     return O
 
 
-def solve_d364b489(I):
+def verify_d364b489(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = toindices(x2)
@@ -9030,7 +9030,7 @@ def solve_d364b489(I):
     return O
 
 
-def solve_d406998b(I):
+def verify_d406998b(I):
     x1 = vmirror(I)
     x2 = fgpartition(x1)
     x3 = merge(x2)
@@ -9044,7 +9044,7 @@ def solve_d406998b(I):
     return O
 
 
-def solve_d43fd935(I):
+def verify_d43fd935(I):
     x1 = mostcolor(I)
     x2 = asobject(I)
     x3 = matcher(first, x1)
@@ -9070,7 +9070,7 @@ def solve_d43fd935(I):
     return O
 
 
-def solve_d4469b4b(I):
+def verify_d4469b4b(I):
     x1 = palette(I)
     x2 = contained(ONE, x1)
     x3 = contained(TWO, x1)
@@ -9083,7 +9083,7 @@ def solve_d4469b4b(I):
     return O
 
 
-def solve_d4a91cb9(I):
+def verify_d4a91cb9(I):
     x1 = ofcolor(I, EIGHT)
     x2 = ofcolor(I, TWO)
     x3 = first(x1)
@@ -9098,7 +9098,7 @@ def solve_d4a91cb9(I):
     return O
 
 
-def solve_d4f3cd78(I):
+def verify_d4f3cd78(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = toindices(x2)
@@ -9132,12 +9132,12 @@ def solve_d4f3cd78(I):
     return O
 
 
-def solve_d511f180(I):
+def verify_d511f180(I):
     O = switch(I, FIVE, EIGHT)
     return O
 
 
-def solve_d5d6de2d(I):
+def verify_d5d6de2d(I):
     x1 = objects(I, T, F, T)
     x2 = merge(x1)
     x3 = cover(I, x2)
@@ -9146,7 +9146,7 @@ def solve_d5d6de2d(I):
     return O
 
 
-def solve_d631b094(I):
+def verify_d631b094(I):
     x1 = palette(I)
     x2 = other(x1, ZERO)
     x3 = colorcount(I, x2)
@@ -9155,7 +9155,7 @@ def solve_d631b094(I):
     return O
 
 
-def solve_d687bc17(I):
+def verify_d687bc17(I):
     x1 = trim(I)
     x2 = asobject(x1)
     x3 = shift(x2, UNITY)
@@ -9185,7 +9185,7 @@ def solve_d687bc17(I):
     return O
 
 
-def solve_d6ad076f(I):
+def verify_d6ad076f(I):
     x1 = partition(I)
     x2 = product(x1, x1)
     x3 = fork(equality, first, last)
@@ -9237,7 +9237,7 @@ def solve_d6ad076f(I):
     return O
 
 
-def solve_d89b689b(I):
+def verify_d89b689b(I):
     x1 = objects(I, T, F, F)
     x2 = sfilter(x1, square)
     x3 = argmax(x2, size)
@@ -9255,7 +9255,7 @@ def solve_d89b689b(I):
     return O
 
 
-def solve_d8c310e9(I):
+def verify_d8c310e9(I):
     x1 = astuple(identity, rot90)
     x2 = astuple(rot180, rot270)
     x3 = combine(x1, x2)
@@ -9297,7 +9297,7 @@ def solve_d8c310e9(I):
     return O
 
 
-def solve_d90796e8(I):
+def verify_d90796e8(I):
     x1 = ofcolor(I, TWO)
     x2 = ofcolor(I, THREE)
     x3 = compose(positive, size)
@@ -9313,7 +9313,7 @@ def solve_d90796e8(I):
     return O
 
 
-def solve_d9f24cd1(I):
+def verify_d9f24cd1(I):
     x1 = astuple(identity, identity)
     x2 = astuple(rot90, rot270)
     x3 = astuple(x1, x2)
@@ -9363,7 +9363,7 @@ def solve_d9f24cd1(I):
     return O
 
 
-def solve_d9fac9be(I):
+def verify_d9fac9be(I):
     x1 = mostcolor(I)
     x2 = palette(I)
     x3 = remove(x1, x2)
@@ -9383,7 +9383,7 @@ def solve_d9fac9be(I):
     return O
 
 
-def solve_dae9d2b5(I):
+def verify_dae9d2b5(I):
     x1 = hsplit(I, TWO)
     x2 = apply(numcolors, x1)
     x3 = equality(x2, TWO_BY_TWO)
@@ -9408,7 +9408,7 @@ def solve_dae9d2b5(I):
     return O
 
 
-def solve_db3e9e38(I):
+def verify_db3e9e38(I):
     x1 = astuple(identity, dmirror)
     x2 = astuple(cmirror, hmirror)
     x3 = combine(x1, x2)
@@ -9456,7 +9456,7 @@ def solve_db3e9e38(I):
     return O
 
 
-def solve_db93a21d(I):
+def verify_db93a21d(I):
     x1 = objects(I, T, T, T)
     x2 = merge(x1)
     x3 = toindices(x2)
@@ -9479,7 +9479,7 @@ def solve_db93a21d(I):
     return O
 
 
-def solve_dbc1a6ce(I):
+def verify_dbc1a6ce(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = lbind(recolor, EIGHT)
@@ -9502,7 +9502,7 @@ def solve_dbc1a6ce(I):
     return O
 
 
-def solve_dc0a314f(I):
+def verify_dc0a314f(I):
     x1 = replace(I, THREE, NEG_ONE)
     x2 = dmirror(x1)
     x3 = papply(pair, x1, x2)
@@ -9522,14 +9522,14 @@ def solve_dc0a314f(I):
     return O
 
 
-def solve_dc1df850(I):
+def verify_dc1df850(I):
     x1 = ofcolor(I, TWO)
     x2 = mapply(neighbors, x1)
     O = underfill(I, ONE, x2)
     return O
 
 
-def solve_dc433765(I):
+def verify_dc433765(I):
     x1 = mostcolor(I)
     x2 = palette(I)
     x3 = remove(x1, x2)
@@ -9545,7 +9545,7 @@ def solve_dc433765(I):
     return O
 
 
-def solve_ddf7fa4f(I):
+def verify_ddf7fa4f(I):
     x1 = width(I)
     x2 = decrement(x1)
     x3 = tojvec(x2)
@@ -9633,7 +9633,7 @@ def solve_ddf7fa4f(I):
     return O
 
 
-def solve_de1cd16c(I):
+def verify_de1cd16c(I):
     x1 = objects(I, T, F, F)
     x2 = totuple(x1)
     x3 = apply(color, x2)
@@ -9658,7 +9658,7 @@ def solve_de1cd16c(I):
     return O
 
 
-def solve_ded97339(I):
+def verify_ded97339(I):
     x1 = leastcolor(I)
     x2 = lbind(recolor, NEG_ONE)
     x3 = rbind(ofcolor, x1)
@@ -9679,7 +9679,7 @@ def solve_ded97339(I):
     return O
 
 
-def solve_e179c5f4(I):
+def verify_e179c5f4(I):
     x1 = portrait(I)
     x2 = branch(x1, identity, dmirror)
     x3 = x2(I)
@@ -9741,7 +9741,7 @@ def solve_e179c5f4(I):
     return O
 
 
-def solve_e21d9049(I):
+def verify_e21d9049(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = compose(first, last)
@@ -9795,7 +9795,7 @@ def solve_e21d9049(I):
     return O
 
 
-def solve_e26a3af2(I):
+def verify_e26a3af2(I):
     x1 = rot90(I)
     x2 = apply(mostcommon, I)
     x3 = apply(mostcommon, x1)
@@ -9814,7 +9814,7 @@ def solve_e26a3af2(I):
     return O
 
 
-def solve_e3497940(I):
+def verify_e3497940(I):
     x1 = lefthalf(I)
     x2 = righthalf(I)
     x3 = vmirror(x2)
@@ -9831,7 +9831,7 @@ def solve_e3497940(I):
     return O
 
 
-def solve_e40b9e2f(I):
+def verify_e40b9e2f(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = mostcolor(I)
@@ -9950,7 +9950,7 @@ def solve_e40b9e2f(I):
     return O
 
 
-def solve_e48d4e1a(I):
+def verify_e48d4e1a(I):
     x1 = frontiers(I)
     x2 = merge(x1)
     x3 = color(x2)
@@ -9979,7 +9979,7 @@ def solve_e48d4e1a(I):
     return O
 
 
-def solve_e5062a87(I):
+def verify_e5062a87(I):
     x1 = leastcolor(I)
     x2 = ofcolor(I, x1)
     x3 = recolor(ZERO, x2)
@@ -9992,7 +9992,7 @@ def solve_e5062a87(I):
     return O
 
 
-def solve_e509e548(I):
+def verify_e509e548(I):
     x1 = objects(I, T, F, T)
     x2 = fork(add, height, width)
     x3 = compose(decrement, x2)
@@ -10012,7 +10012,7 @@ def solve_e509e548(I):
     return O
 
 
-def solve_e50d258f(I):
+def verify_e50d258f(I):
     x1 = asindices(I)
     x2 = box(x1)
     x3 = toobject(x2, I)
@@ -10027,7 +10027,7 @@ def solve_e50d258f(I):
     return O
 
 
-def solve_e6721834(I):
+def verify_e6721834(I):
     x1 = frontiers(I)
     x2 = sfilter(x1, hline)
     x3 = size(x2)
@@ -10073,7 +10073,7 @@ def solve_e6721834(I):
     return O
 
 
-def solve_e73095fd(I):
+def verify_e73095fd(I):
     x1 = objects(I, T, F, F)
     x2 = mostcolor(I)
     x3 = colorfilter(x1, x2)
@@ -10092,7 +10092,7 @@ def solve_e73095fd(I):
     return O
 
 
-def solve_e76a88a6(I):
+def verify_e76a88a6(I):
     x1 = objects(I, F, F, T)
     x2 = argmax(x1, numcolors)
     x3 = normalize(x2)
@@ -10104,7 +10104,7 @@ def solve_e76a88a6(I):
     return O
 
 
-def solve_e8593010(I):
+def verify_e8593010(I):
     x1 = objects(I, T, F, T)
     x2 = sizefilter(x1, ONE)
     x3 = sizefilter(x1, TWO)
@@ -10118,7 +10118,7 @@ def solve_e8593010(I):
     return O
 
 
-def solve_e8dc4411(I):
+def verify_e8dc4411(I):
     x1 = fgpartition(I)
     x2 = argmax(x1, size)
     x3 = other(x1, x2)
@@ -10157,7 +10157,7 @@ def solve_e8dc4411(I):
     return O
 
 
-def solve_e9614598(I):
+def verify_e9614598(I):
     x1 = fgpartition(I)
     x2 = merge(x1)
     x3 = center(x2)
@@ -10167,7 +10167,7 @@ def solve_e9614598(I):
     return O
 
 
-def solve_e98196ab(I):
+def verify_e98196ab(I):
     x1 = frontiers(I)
     x2 = sfilter(x1, hline)
     x3 = size(x2)
@@ -10182,7 +10182,7 @@ def solve_e98196ab(I):
     return O
 
 
-def solve_e9afcf9a(I):
+def verify_e9afcf9a(I):
     x1 = asobject(I)
     x2 = height(I)
     x3 = decrement(x2)
@@ -10201,7 +10201,7 @@ def solve_e9afcf9a(I):
     return O
 
 
-def solve_ea32f347(I):
+def verify_ea32f347(I):
     x1 = objects(I, T, F, T)
     x2 = merge(x1)
     x3 = fill(I, FOUR, x2)
@@ -10212,7 +10212,7 @@ def solve_ea32f347(I):
     return O
 
 
-def solve_ea786f4a(I):
+def verify_ea786f4a(I):
     x1 = shape(I)
     x2 = halve(x1)
     x3 = rbind(shoot, UP_RIGHT)
@@ -10228,7 +10228,7 @@ def solve_ea786f4a(I):
     return O
 
 
-def solve_eb281b96(I):
+def verify_eb281b96(I):
     x1 = height(I)
     x2 = width(I)
     x3 = decrement(x1)
@@ -10243,7 +10243,7 @@ def solve_eb281b96(I):
     return O
 
 
-def solve_eb5a1d5d(I):
+def verify_eb5a1d5d(I):
     x1 = compose(dmirror, dedupe)
     x2 = x1(I)
     x3 = x1(x2)
@@ -10256,7 +10256,7 @@ def solve_eb5a1d5d(I):
     return O
 
 
-def solve_ec883f72(I):
+def verify_ec883f72(I):
     x1 = fork(multiply, height, width)
     x2 = partition(I)
     x3 = argmax(x2, x1)
@@ -10284,7 +10284,7 @@ def solve_ec883f72(I):
     return O
 
 
-def solve_ecdecbb3(I):
+def verify_ecdecbb3(I):
     x1 = leastcolor(I)
     x2 = objects(I, T, F, T)
     x3 = merge(x2)
@@ -10347,12 +10347,12 @@ def solve_ecdecbb3(I):
     return O
 
 
-def solve_ed36ccf7(I):
+def verify_ed36ccf7(I):
     O = rot270(I)
     return O
 
 
-def solve_ef135b50(I):
+def verify_ef135b50(I):
     x1 = objects(I, T, F, F)
     x2 = fork(multiply, height, width)
     x3 = fork(equality, size, x2)
@@ -10380,7 +10380,7 @@ def solve_ef135b50(I):
     return O
 
 
-def solve_f15e1fac(I):
+def verify_f15e1fac(I):
     x1 = rbind(ofcolor, TWO)
     x2 = compose(lowermost, x1)
     x3 = matcher(x2, ZERO)
@@ -10437,7 +10437,7 @@ def solve_f15e1fac(I):
     return O
 
 
-def solve_f1cefba8(I):
+def verify_f1cefba8(I):
     x1 = partition(I)
     x2 = fork(multiply, height, width)
     x3 = argmax(x1, x2)
@@ -10467,13 +10467,13 @@ def solve_f1cefba8(I):
     return O
 
 
-def solve_f25fbde4(I):
+def verify_f25fbde4(I):
     x1 = compress(I)
     O = upscale(x1, TWO)
     return O
 
 
-def solve_f25ffba3(I):
+def verify_f25ffba3(I):
     x1 = tophalf(I)
     x2 = numcolors(x1)
     x3 = equality(x2, ONE)
@@ -10494,7 +10494,7 @@ def solve_f25ffba3(I):
     return O
 
 
-def solve_f2829549(I):
+def verify_f2829549(I):
     x1 = frontiers(I)
     x2 = sfilter(x1, hline)
     x3 = size(x2)
@@ -10516,7 +10516,7 @@ def solve_f2829549(I):
     return O
 
 
-def solve_f35d900a(I):
+def verify_f35d900a(I):
     x1 = objects(I, T, F, T)
     x2 = palette(I)
     x3 = mostcolor(I)
@@ -10541,7 +10541,7 @@ def solve_f35d900a(I):
     return O
 
 
-def solve_f5b8619d(I):
+def verify_f5b8619d(I):
     x1 = fgpartition(I)
     x2 = mapply(toindices, x1)
     x3 = mapply(vfrontier, x2)
@@ -10551,7 +10551,7 @@ def solve_f5b8619d(I):
     return O
 
 
-def solve_f76d97a5(I):
+def verify_f76d97a5(I):
     x1 = palette(I)
     x2 = remove(FIVE, x1)
     x3 = first(x2)
@@ -10562,7 +10562,7 @@ def solve_f76d97a5(I):
     return O
 
 
-def solve_f8a8fe49(I):
+def verify_f8a8fe49(I):
     x1 = partition(I)
     x2 = fork(multiply, height, width)
     x3 = argmin(x1, x2)
@@ -10606,7 +10606,7 @@ def solve_f8a8fe49(I):
     return O
 
 
-def solve_f8b3ba0a(I):
+def verify_f8b3ba0a(I):
     x1 = compress(I)
     x2 = astuple(THREE, ONE)
     x3 = palette(x1)
@@ -10623,7 +10623,7 @@ def solve_f8b3ba0a(I):
     return O
 
 
-def solve_f8c80d96(I):
+def verify_f8c80d96(I):
     x1 = objects(I, T, F, F)
     x2 = compose(maximum, shape)
     x3 = argmin(x1, x2)
@@ -10670,7 +10670,7 @@ def solve_f8c80d96(I):
     return O
 
 
-def solve_f8ff0b80(I):
+def verify_f8ff0b80(I):
     x1 = objects(I, T, T, T)
     x2 = order(x1, size)
     x3 = apply(color, x2)
@@ -10681,7 +10681,7 @@ def solve_f8ff0b80(I):
     return O
 
 
-def solve_f9012d9b(I):
+def verify_f9012d9b(I):
     x1 = lbind(contained, ZERO)
     x2 = compose(flip, x1)
     x3 = sfilter(I, x2)
@@ -10727,7 +10727,7 @@ def solve_f9012d9b(I):
     return O
 
 
-def solve_fafffa47(I):
+def verify_fafffa47(I):
     x1 = tophalf(I)
     x2 = numcolors(x1)
     x3 = equality(x2, TWO)
@@ -10761,7 +10761,7 @@ def solve_fafffa47(I):
     return O
 
 
-def solve_fcb5c309(I):
+def verify_fcb5c309(I):
     x1 = objects(I, T, F, F)
     x2 = lbind(contained, F)
     x3 = compose(flip, x2)
@@ -10792,7 +10792,7 @@ def solve_fcb5c309(I):
     return O
 
 
-def solve_fcc82909(I):
+def verify_fcc82909(I):
     x1 = objects(I, F, F, T)
     x2 = lbind(add, DOWN)
     x3 = compose(x2, llcorner)
@@ -10808,7 +10808,7 @@ def solve_fcc82909(I):
     return O
 
 
-def solve_feca6190(I):
+def verify_feca6190(I):
     x1 = asobject(I)
     x2 = matcher(first, ZERO)
     x3 = compose(flip, x2)
@@ -10830,7 +10830,7 @@ def solve_feca6190(I):
     return O
 
 
-def solve_ff28f65a(I):
+def verify_ff28f65a(I):
     x1 = palette(I)
     x2 = remove(TWO, x1)
     x3 = lbind(colorcount, I)
@@ -10852,7 +10852,7 @@ def solve_ff28f65a(I):
     return O
 
 
-def solve_ff805c23(I):
+def verify_ff805c23(I):
     x1 = palette(I)
     x2 = lbind(rbind, sfilter)
     x3 = lbind(compose, flip)
