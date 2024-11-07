@@ -69,8 +69,8 @@ for P in DSL_PRIMITIVES:
     arg_types = []
     for arg in args.split(","):
         if ":" in arg:
-            arg_types.append(SIMPLIFIED_TYPES[arg.split(":")[1].strip()])
-    out_type = SIMPLIFIED_TYPES[defn.split("->")[1].split(":")[0].strip()]
+            arg_types.append(SIMPLIFIED_DSL_TYPES[arg.split(":")[1].strip()])
+    out_type = SIMPLIFIED_DSL_TYPES[defn.split("->")[1].split(":")[0].strip()]
     DSL_PRIMITIVES_SIGNATURES[P] = (tuple(arg_types), out_type)
 
 
@@ -118,7 +118,7 @@ def check_solver_formatting(S):
     assert 'return' in lines[-1], f"Final line is not a return statement.\n\n{S}"
 
     var_types = DSL_VAR_TYPES
-    var_types['I'] = SIMPLIFIED_TYPES['Grid']
+    var_types['I'] = SIMPLIFIED_DSL_TYPES['Grid']
     vars_used = set()
     calls = set()
 
